@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Runtime.InteropServices;
 
 public class Hackenbush : Node {
 	public static int MAXNODES = 128;
@@ -47,18 +46,16 @@ public class Hackenbush : Node {
 	}
 	
 	public static int[,] node = new int[128, 64];
-	static int[] mark = new int[128];
-	static int[,] componentlist = new int[MAXEDGES, MAXEDGES];
-	static surreal[] componentvalues = new surreal[MAXEDGES];
+	public static int[] mark = new int[128];
+	public static int[,] componentlist = new int[MAXEDGES, MAXEDGES];
+	public static surreal[] componentvalues = new surreal[MAXEDGES];
 	
-	[StructLayout(LayoutKind.Sequential)]
 	struct gamevalue {
 		long game {get;set;}
 		surreal value {get;set;}
 		int mark {get;set;}
 	}
 	
-	[StructLayout(LayoutKind.Sequential)]
 	unsafe struct hashentry {
 		hashentry *next;
 		gamevalue gv;
@@ -91,8 +88,6 @@ public class Hackenbush : Node {
 				f = ad/bd;
 				return (an < bn*f);
 			}
-			//if (an * bd < bn * ad) return 1;
-			//return 0;
 	}
 	
 	public static surreal reduce(surreal ain) {
@@ -141,8 +136,6 @@ public class Hackenbush : Node {
 		surreal alocal = new surreal(a);
 		surreal blocal = new surreal(b);
 		surreal surmid = new surreal();
-		
-		GD.Print("Denom:", a.den);
 		
 		bool swap = false;
 
@@ -444,9 +437,8 @@ public class Hackenbush : Node {
 		
 		locvalue.num = 0;
 		locvalue.den = 1;
-		GD.Print("i = ", componentcount);
+		
 		for (i = 0; i < componentcount; i++) {
-			
 			locvalue = surrealsum(locvalue, componentvalues[i]);
 		}
 			
@@ -528,20 +520,28 @@ public class Hackenbush : Node {
 		//surmiddle(&bluemax, &redmin, value);
 		if (true) {
 			if (brcnt == 0) Bestred = -1;
-				else
-			Bestred = bestred[hackrand() % brcnt];
+			else Bestred = bestred[rand(brcnt)];
+			
 			if (bbcnt == 0) Bestblue = -1;
-				else
-			Bestblue = bestblue[hackrand() % bbcnt];
+			else Bestblue = bestblue[rand(bbcnt)];
 		}
 	}
-	void initgame() {
+	
+	public static void initgame() {
+		Hackenbush.edgecount = 0;
+		node = new int[128, 64];
+		mark = new int[128];
+		componentlist = new int[MAXEDGES, MAXEDGES];
+		componentvalues = new surreal[MAXEDGES];
+		Bestred = 0;
+		Bestblue = 0;
+		
 		// TODO
 		// inithashtable();
 	}
 	
-	static int hackrand() {
-		return (int)GD.Randi();
+	static int rand(int upper) {
+		return (int)(GD.Randi() % upper);
 	}
 	
 	 void reportgamevalue(game G) {

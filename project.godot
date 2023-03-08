@@ -8,35 +8,48 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "Game",
-"language": "GDScript",
-"path": "res://game.gd"
-} ]
-_global_script_class_icons={
-"Game": ""
-}
-
 [application]
 
 config/name="Hackenbush"
+config/description="Take turns trimming branches in this classic from combinatorial game theory!"
 run/main_scene="res://Board.tscn"
-boot_splash/bg_color=Color( 0.913725, 0.847059, 0.65098, 1 )
-config/icon="res://icon.png"
+boot_splash/image="res://Sprites/logo.png"
+boot_splash/bg_color=Color( 0, 0.0705882, 0.0980392, 1 )
+config/icon="res://Sprites/logo.png"
 
 [autoload]
 
-Global="*res://game.gd"
+Helper="*res://helper.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
 window/size/width=576
 window/size/height=1024
+window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+a={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 
@@ -44,5 +57,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.913725, 0.847059, 0.65098, 1 )
+environment/default_clear_color=Color( 0.894118, 0.890196, 0.870588, 1 )
 environment/default_environment="res://default_env.tres"
