@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Branch.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform float alpha;
+
+void fragment() {
+	COLOR.a = alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[node name="Edges" type="Node2D"]
+
+[node name="Branch" parent="." instance=ExtResource( 1 )]
+material = SubResource( 9 )
+points = PoolVector2Array( 100, 0, 100, -200 )
+begin_cap_mode = 1
+q = 1
+
+[node name="Branch2" parent="." instance=ExtResource( 1 )]
+material = SubResource( 3 )
+points = PoolVector2Array( 100, -200, 100, -380 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+ID = 1
+p = 1
+q = 2
+
+[node name="Branch3" parent="." instance=ExtResource( 1 )]
+material = SubResource( 4 )
+points = PoolVector2Array( -100, 0, -100, -200 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 2
+p = 3
+q = 4

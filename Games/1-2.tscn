@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Branch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Branch.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform float alpha;
+
+void fragment() {
+	COLOR.a = alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[node name="Edges" type="Node2D"]
+
+[node name="Branch" type="Line2D" parent="." groups=["branch"] instance=ExtResource( 1 )]
+material = SubResource( 9 )
+points = PoolVector2Array( 100, 0, 120, -150 )
+default_color = Color( 0, 0.372549, 0.45098, 1 )
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
+script = ExtResource( 2 )
+q = 1
+
+[node name="Branch2" type="Line2D" parent="." groups=["branch"] instance=ExtResource( 1 )]
+material = SubResource( 3 )
+points = PoolVector2Array( 120, -150, 80, -300 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
+script = ExtResource( 2 )
+ID = 1
+p = 1
+q = 2
+
+[node name="Branch3" type="Line2D" parent="." groups=["branch"] instance=ExtResource( 1 )]
+material = SubResource( 4 )
+points = PoolVector2Array( -100, 0, -120, -150 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource( 2 )
+ID = 2
+p = 3
+q = 4
+
+[node name="Branch4" type="Line2D" parent="." groups=["branch"] instance=ExtResource( 1 )]
+material = SubResource( 5 )
+points = PoolVector2Array( -120, -150, -80, -300 )
+default_color = Color( 0, 0.372549, 0.45098, 1 )
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource( 2 )
+ID = 3
+p = 4
+q = 5
+
+[node name="Branch5" type="Line2D" parent="." groups=["branch"] instance=ExtResource( 1 )]
+material = SubResource( 6 )
+points = PoolVector2Array( -80, -300, -100, -450 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource( 2 )
+ID = 4
+p = 5
+q = 6

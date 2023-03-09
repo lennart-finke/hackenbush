@@ -1,0 +1,401 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/red.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/GUI.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/logo.png" type="Texture" id=3]
+[ext_resource path="res://Theme/Theme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/BackButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/laurel.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/bluewin.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/1P.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/2P.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/credits.png" type="Texture" id=10]
+[ext_resource path="res://Theme/minimal5x7.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MainGameStatic:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MainGameStatic:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MainGameStatic:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MainGameStatic:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainGameStatic/CenterContainer/Win:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_in"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MainGameStatic:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MainGameStatic:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MainGameStatic:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MainGameStatic:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_out"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MainGameStatic:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MainGameStatic:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MainGameStatic:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MainGameStatic:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -1, 0.0235499, 1, -0.0235499, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 11 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+transition_time = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/fade_in = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+margin_right = 576.0
+margin_bottom = 1024.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
+margin_left = 96.0
+margin_top = 183.0
+margin_right = 480.0
+margin_bottom = 841.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_right = 384.0
+margin_bottom = 384.0
+
+[node name="Logo" type="TextureRect" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 384.0
+margin_bottom = 384.0
+texture = ExtResource( 3 )
+
+[node name="ComputerPlay" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_top = 388.0
+margin_right = 384.0
+margin_bottom = 462.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
+text = "Against Computer"
+icon = ExtResource( 8 )
+align = 2
+
+[node name="LocalPlay" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_top = 466.0
+margin_right = 384.0
+margin_bottom = 540.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
+text = "Local Play"
+icon = ExtResource( 9 )
+align = 2
+
+[node name="Credits" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_top = 544.0
+margin_right = 384.0
+margin_bottom = 618.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
+text = "Credits"
+icon = ExtResource( 10 )
+align = 2
+
+[node name="Version" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_top = 622.0
+margin_right = 384.0
+margin_bottom = 658.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+text = "v 0.1
+
+This game is still in early beta!  "
+
+[node name="LevelSelect" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1800.0
+margin_right = 1800.0
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect"]
+margin_right = 576.0
+margin_bottom = 1024.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/CenterContainer"]
+margin_left = 160.0
+margin_top = 451.0
+margin_right = 416.0
+margin_bottom = 573.0
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 50.0
+
+[node name="Laurel" type="TextureRect" parent="LevelSelect/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 103.0
+margin_right = 153.0
+margin_bottom = 50.0
+texture = ExtResource( 6 )
+
+[node name="GridContainer" type="GridContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 256.0
+margin_bottom = 54.0
+columns = 4
+
+[node name="MarginContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 256.0
+margin_bottom = 122.0
+
+[node name="BackButton" parent="LevelSelect/CenterContainer/VBoxContainer/MarginContainer" instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_right = 256.0
+
+[node name="MainGame" type="MarginContainer" parent="."]
+margin_top = -1024.0
+margin_right = 576.0
+
+[node name="Credits" type="MarginContainer" parent="."]
+margin_left = 1800.0
+margin_right = 2376.0
+margin_bottom = 1024.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits"]
+margin_right = 576.0
+margin_bottom = 1024.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
+margin_left = 160.0
+margin_top = 173.0
+margin_right = 416.0
+margin_bottom = 850.0
+
+[node name="Credits" type="RichTextLabel" parent="Credits/CenterContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 609.0
+theme = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "(c) fi-le 2023
+
+This game is [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]free software[/wave][/rainbow] due to being published under [url=http://www.gnu.de/documents/gpl-2.0.de.html]GNU General Public License v2.0[/url] - and [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]open-source[/wave][/rainbow]! You can view the source code, check out planned features, fork the game or perhaps even contribute [url=https://github.com/file-acomplaint/hackenbush]here[/url].
+You're also say hi via email: [url=mailto:developer@fi-le.net]developer@fi-le.net[/url].
+
+Using logic from a [url=http://www.geometer.org/hackenbush/index.html][i]wonderful[/i] implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
+
+Pixel Font by [url=https://khef.co/]Kawika Heftel[/url] under CC0. 
+
+Thanks for playing!
+
+
+"
+text = "(c) fi-le 2023
+
+This game is free software due to being published under GNU General Public License v2.0 - and open-source! You can view the source code, check out planned features, fork the game or perhaps even contribute here.
+You're also say hi via email: developer@fi-le.net.
+
+Using logic from a wonderful implementation of Red-Blue-Hackenbush for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
+
+Pixel Font by Kawika Heftel under CC0. 
+
+Thanks for playing!
+
+
+"
+fit_content_height = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer"]
+margin_top = 613.0
+margin_right = 256.0
+margin_bottom = 677.0
+
+[node name="BackButton" parent="Credits/CenterContainer/VBoxContainer/CenterContainer" instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_right = 256.0
+
+[node name="MainGameStatic" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainGameStatic"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Win" type="TextureRect" parent="MainGameStatic/CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = 256.0
+margin_right = 544.0
+margin_bottom = 768.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainGameStatic"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -150.0
+mouse_filter = 2
+custom_constants/margin_right = 25
+custom_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGameStatic/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 125.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGameStatic/MarginContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+
+[node name="Turn" type="TextureRect" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/ComputerPlay" to="." method="_on_ComputerPlay_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/LocalPlay" to="." method="_on_LocalPlay_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="meta_clicked" from="Credits/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_meta_clicked"]
+[connection signal="pressed" from="Credits/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]

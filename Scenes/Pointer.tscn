@@ -3,12 +3,14 @@
 [ext_resource path="res://Scenes/Pointer.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 15.0
 
 [sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0 ), 0.0, 3.00496, 0, 0, Vector2( 0.995049, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Pointer" type="Area2D" groups=["pointer"]]
 script = ExtResource( 1 )
+cutting_velocity = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

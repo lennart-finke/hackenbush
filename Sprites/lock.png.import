@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue.png-1332f6347bc1ec73de3e5db0116877d4.stex"
+path="res://.import/lock.png-6fac9349cb5291238717611ff46947de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/blue.png"
-dest_files=[ "res://.import/blue.png-1332f6347bc1ec73de3e5db0116877d4.stex" ]
+source_file="res://Sprites/lock.png"
+dest_files=[ "res://.import/lock.png-6fac9349cb5291238717611ff46947de.stex" ]
 
 [params]
 

@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Branch.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform float alpha;
+
+void fragment() {
+	COLOR.a = alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/alpha = 1.0
+
+[node name="Edges" type="Node2D"]
+
+[node name="Branch" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 20, 0, 50, -110 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+q = 1
+
+[node name="Branch2" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 50, -110, 0, -160 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 2
+q = 1
+
+[node name="Branch3" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 0, -160, 40, -210 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 2
+q = 3
+
+[node name="Branch4" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -130, 0, -90, -100 )
+begin_cap_mode = 1
+p = 4
+q = 5
+
+[node name="Branch5" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -90, -100, -110, -150 )
+begin_cap_mode = 1
+p = 6
+q = 5
+
+[node name="Branch6" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -110, -150, -30, -240 )
+begin_cap_mode = 1
+p = 6
+q = 7
+
+[node name="Branch7" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 40, -210, -30, -240 )
+begin_cap_mode = 1
+p = 3
+q = 7
+
+[node name="Branch9" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 40, -210, 110, -180 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 3
+q = 9
+
+[node name="Branch10" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 110, -180, 70, -390 )
+begin_cap_mode = 1
+p = 10
+q = 9
+
+[node name="Branch11" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -100, -270, 70, -390 )
+begin_cap_mode = 1
+p = 10
+q = 8
+
+[node name="Branch8" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -30, -240, -100, -270 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 8
+q = 7
+
+[node name="Branch12" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 70, -390, 100, -480 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 10
+q = 11
+
+[node name="Branch17" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 100, -480, 76, -505, 69, -523, 69, -546, 79, -569, 91, -587, 107, -601, 126, -606, 148, -600 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 16
+q = 11
+
+[node name="Branch18" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 100, -480, 137, -494, 153, -511, 164, -536, 167, -562, 163, -583, 150, -600 )
+begin_cap_mode = 1
+p = 16
+q = 11
+
+[node name="Branch19" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 150, -600, 164, -619, 178, -629, 201, -625, 212, -606, 210, -579, 207, -556, 208, -537, 213, -525, 221, -517, 232, -517, 240, -528, 245, -542, 246, -559 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 16
+q = 17
+
+[node name="Branch13" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 100, -480, 210, -360 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 14
+q = 11
+
+[node name="Branch16" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 210, -360, 160, -280 )
+begin_cap_mode = 1
+p = 14
+q = 15
+
+[node name="Branch14" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( 100, -480, -80, -440 )
+begin_cap_mode = 1
+p = 12
+q = 11
+
+[node name="Branch15" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -80, -440, -140, -520 )
+begin_cap_mode = 1
+p = 12
+q = 13
+
+[node name="Branch20" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -139, -519, -126, -555, -123, -575, -128, -594, -136, -605, -150, -609, -164, -601, -168, -592, -173, -578, -190, -582, -207, -578, -213, -564, -212, -550, -202, -540, -186, -532, -140, -520 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+begin_cap_mode = 1
+p = 13
+q = 13

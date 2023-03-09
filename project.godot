@@ -14,6 +14,8 @@ config/name="Hackenbush"
 config/description="Take turns trimming branches in this classic from combinatorial game theory!"
 run/main_scene="res://Board.tscn"
 boot_splash/image="res://Sprites/logo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0.0705882, 0.0980392, 1 )
 config/icon="res://Sprites/logo.png"
 

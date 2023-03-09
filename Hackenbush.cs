@@ -50,6 +50,8 @@ public class Hackenbush : Node {
 	public static int[,] componentlist = new int[MAXEDGES, MAXEDGES];
 	public static surreal[] componentvalues = new surreal[MAXEDGES];
 	
+	public static System.Collections.Generic.Dictionary<long, surreal> gamevaluedict = new System.Collections.Generic.Dictionary<long, surreal>{};
+	
 	struct gamevalue {
 		long game {get;set;}
 		surreal value {get;set;}
@@ -359,14 +361,9 @@ public class Hackenbush : Node {
 		game newg;
 		int i;
 		
-		// DEBUG
-		// Not really sure what this does...
-		//doabortcheck();
-		
-		// TODO
-		// maybe we already did it?
-		// long gv = 0;
-		// if (lookupgamevalue(gv = getgamevalue(g), value)) return;
+		// In case we already calculated it
+		long gv = getgamevalue(g);
+		if (gamevaluedict.ContainsKey(gv)) return gamevaluedict[gv];
 
 		bluemax.den = -1; // illegal
 		redmin.den = -1; // illegal
@@ -409,10 +406,9 @@ public class Hackenbush : Node {
 			redmin.num = 10000;
 		}
 		
-		return surmiddle(bluemax, redmin);
-		
-		// TODO Hashmap
-		// addgamevalue(gv, value);
+		surreal val = surmiddle(bluemax, redmin);
+		gamevaluedict.Add(gv, val);
+		return val;
 	}
 	
 	 public static surreal calcgamevalue(game g) {

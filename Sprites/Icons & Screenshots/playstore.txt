@@ -1,0 +1,7 @@
+Hackenbush
+
+Take turns trimming branches in this classic from combinatorial game theory!
+
+You (Red) and your vicious opponent (Blue) take turns cutting the branches of a bush matching your respective color. Branches not connected to the ground naturally fall and vanish from the game. The last one to make a move wins!
+
+These simple rules make up the classic of combinatorial game theory that is Red-Blue-Hackenbush. The implementation you are looking at lets you play out some levels, against a Computer or with a friend. (Playing with a fiend is also possible)

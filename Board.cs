@@ -191,7 +191,7 @@ public class Board : Node {
 		}
 		
 		Edges = EdgeList.ToArray();
-		GD.Print(Edges.Length);
+		
 		Vertices = new Vertex[VertexDict.Count];
 		foreach(System.Collections.Generic.KeyValuePair<int, Vector2> pair in VertexDict) {
 			Vertices[pair.Key] = new Vertex(pair.Key, pair.Value);
