@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Hackenbush"
 config/description="Take turns trimming branches in this classic from combinatorial game theory!"
-run/main_scene="res://Board.tscn"
+run/main_scene="res://Scenes/Board.tscn"
 boot_splash/image="res://Sprites/logo.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
@@ -21,7 +21,7 @@ config/icon="res://Sprites/logo.png"
 
 [autoload]
 
-Helper="*res://helper.gd"
+Helper="*res://Scenes/helper.gd"
 
 [debug]
 
@@ -32,6 +32,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=576
 window/size/height=1024
+window/size/borderless=true
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
