@@ -10,7 +10,7 @@ The aim of this project is to promote combinatorial game theory by giving fans o
 
 ![Screenshot](https://fi-le.net/hackenbush/hack.gif?raw=true)
 
-## How to Play
+## Where to Play
 You can download an APK on the [releases page](https://github.com/file-acomplaint/hackenbush/releases), install via the [Play Store](https://play.google.com/store/apps/details?id=org.file.hackenbush&pli=1) or build it yourself by opening the project in Godot 3.
 While performance and stability is not guaranteed, [here](https://fi-le.itch.io/hackenbush) is a browser version, too! 
 
