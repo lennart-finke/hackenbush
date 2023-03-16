@@ -4,7 +4,11 @@
 This project is an implementation of finite Red-Blue [Hackenbush](https://en.wikipedia.org/wiki/Hackenbush), mainly for mobile devices. Hackenbush is a simple and fun puzzle game that led to the discovery of a very large, fascinating algebraic structure, [the surreal numbers](https://en.wikipedia.org/wiki/Surreal_number). It was invented by John Conway. 
 
 The aim of this project is to promote combinatorial game theory by giving fans of Hackenbush an easy way to demonstrate it, and potentially to teach it to new players as well.
+
 ![Screenshot](https://fi-le.net/hackenbush/hack.gif?raw=true)
+
+## Installation
+You can download an APK on the [releases page](https://github.com/file-acomplaint/hackenbush/releases), install via the [Play Store](https://play.google.com/store/apps/details?id=org.file.hackenbush&pli=1) or build it yourself by opening the project in Godot 3.
 
 ## Features
 The project is in early development and current features are quite limited.
