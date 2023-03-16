@@ -23,6 +23,7 @@ The [issues page](https://github.com/file-acomplaint/hackenbush/issues) lists so
 ## Heritage
 **Hackenbush: Pocket Edition** is made in [Godot Engine](https://github.com/godotengine/godot) and steals the difficult part of its logic from a [great Hackenbush implementation](http://www.geometer.org/hackenbush/index.html) for Mac and PC, by Tom R. Davis. The pixel font is by [Kawika Heftel](https://khef.co/), licensed under CC0. Thanks!
 
+Since Tom Davis' version is under the GPL 2.0 license, so is this Hackenbush: Pocket Edition.
 ---
 ### Further Reading
 - [Hackenbush: A window to a new world of math](https://www.youtube.com/watch?v=ZYj4NkeGPdM) is a video explaining the rules of the game while walking the viewer through the discovery of surreal numbers. A must watch!
