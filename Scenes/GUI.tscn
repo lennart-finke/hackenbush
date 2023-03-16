@@ -112,6 +112,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "fade_out"
+length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("MainGameStatic:modulate:r")
 tracks/0/interp = 1
@@ -120,7 +121,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0, 0.5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("MainGameStatic:modulate:g")
@@ -130,7 +131,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0, 0.5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("MainGameStatic:modulate:b")
@@ -140,7 +141,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"times": PoolRealArray( 0, 0.5 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("MainGameStatic:modulate:a")
@@ -149,8 +150,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 1, -1, 0.0235499, 1, -0.0235499, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"points": PoolRealArray( 1, -1, 0.0235499, 0.3, 0.0118287, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 
 [sub_resource type="DynamicFont" id=4]

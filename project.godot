@@ -32,7 +32,6 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=576
 window/size/height=1024
-window/size/borderless=true
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
