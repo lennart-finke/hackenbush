@@ -67,7 +67,7 @@ public class Board : Node {
 	public bool redsTurn = false; 
 	public int maxCapacity = 50;
 	public Node Helper;
-	public CPUParticles2D Canon;
+	public CPUParticles2D Confetti;
 	public TextureRect TurnSprite;
 	public Node2D EdgeContainer;
 	public Control GUI;
@@ -80,7 +80,7 @@ public class Board : Node {
 	
 	public override void _Ready() {
 		Helper = GetNode<Node>("/root/Helper");
-		Canon = GetNode<CPUParticles2D>("CPUParticles2D");
+		Confetti = GetNode<CPUParticles2D>("CPUParticles2D");
 		TurnSprite = GetNode<TextureRect>("UILayer/GUI/MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Turn");
 		EdgeContainer = GetNode<Node2D>("Edges");
 		Pointer = GetNode<Area2D>("Pointer");
@@ -295,10 +295,10 @@ public class Board : Node {
 		}
 		
 		if 			(blue == 0 && !redsTurn) {
-			Canon.Color = new Color("AE2012");
+			Confetti.Color = new Color("AE2012");
 			Win("red");
 		} else if 	(red == 0 && redsTurn) {
-			Canon.Color = new Color("005F73");
+			Confetti.Color = new Color("005F73");
 			Win("blue");
 		}
 		
@@ -321,7 +321,9 @@ public class Board : Node {
 	public async void Win(string winner) {
 		if (!inGame) return;
 		inGame = false;
-		Canon.Emitting = true;
+		
+		Confetti.Restart();
+		Confetti.Emitting = true;
 		
 		if (winner == "red") GUI.Call("red_win"); else GUI.Call("blue_win");
 		

@@ -1,8 +1,9 @@
 extends Control
 
-# From https://www.youtube.com/watch?v=3lgjj7Wccyw
+# Adapted from https://www.youtube.com/watch?v=3lgjj7Wccyw
 
-export var transition_time : float
+var transition_time_x : float = 1
+var transition_time_y : float = 1
 
 var LEVELSPERWORLD : int = 16 
 
@@ -10,6 +11,7 @@ var menu_origin_position := Vector2.ZERO
 var menu_origin_size := Vector2.ZERO
 
 var current_menu
+var menus = []
 
 var world : int = 1
 
@@ -32,33 +34,55 @@ func _ready():
 	get_viewport().connect("size_changed", self, "set_viewport_size")
 	current_menu = mainmenu
 	set_viewport_size()
+	
+	for child in get_children():
+		if child is MarginContainer:
+			menus.append(child)
 
 func set_viewport_size():
 	menu_origin_size = get_viewport_rect().size
 	menu_origin_position = Vector2((menu_origin_size.x - 576) / 2, 0)
+	transition_time_x = menu_origin_size.x * 0.001
+	transition_time_y = menu_origin_size.y * 0.001
+	
+	# Remove all but the proper menu from visibility
+	for menu in menus:
+		if menu != current_menu:
+			menu.rect_global_position = Vector2(-menu_origin_size.x, 0)
+		else:
+			menu.rect_global_position = menu_origin_position
 
 func to_next(menu : String, direction : String):
 	var next_menu = from_string(menu)
 	if next_menu == levelselect:
 		setup_levelselect()
 	
-	tween.interpolate_property(next_menu, "rect_global_position", next_menu.rect_global_position, menu_origin_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
+	var transition_time : float
 	if direction == "right":
-		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(-menu_origin_size.x, 0), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
+		transition_time = transition_time_x
+		next_menu.rect_global_position = Vector2(menu_origin_size.x*2, 0)
+		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(-menu_origin_size.x*1.2, 0), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
 
 	elif direction == "left":
-		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(menu_origin_size.x, 0), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
+		transition_time = transition_time_x
+		next_menu.rect_global_position = Vector2(-menu_origin_size.x, 0)
+		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(menu_origin_size.x*1.5, 0), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
 	
 	elif direction == "up":
+		transition_time = transition_time_y
+		next_menu.rect_global_position = Vector2(0, -menu_origin_size.y)
 		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(0, menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	
 	elif direction == "down":
-		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(0, -menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT )
+		transition_time = transition_time_y
+		next_menu.rect_global_position = Vector2(0, menu_origin_size.y)
+		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(0, -menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	tween.interpolate_property(next_menu, "rect_global_position", next_menu.rect_global_position, menu_origin_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	
 	tween.start()
-	
-	current_menu = next_menu
 
+	current_menu = next_menu
+	
 func from_string(menu : String):
 	match menu:
 		"mainmenu":
