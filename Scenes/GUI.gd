@@ -22,12 +22,15 @@ onready var mainmenu := $MainMenu
 onready var levelselect := $LevelSelect
 onready var credits := $Credits
 onready var maingame := $MainGame
+onready var tutorial := $Tutorial
 onready var tween := $Tween
 onready var level_container := $LevelSelect/CenterContainer/VBoxContainer/GridContainer
 onready var timer := $Timer
 onready var animation_player := $AnimationPlayer
 onready var win_sprite := $MainGameStatic/CenterContainer/Win
 onready var laurel := $LevelSelect/CenterContainer/VBoxContainer/CenterContainer/Laurel
+onready var red := $MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Red/Idle/AnimationPlayer
+onready var red_blade := $MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Red/Blade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,12 +74,12 @@ func to_next(menu : String, direction : String):
 	elif direction == "up":
 		transition_time = transition_time_y
 		next_menu.rect_global_position = Vector2(0, -menu_origin_size.y)
-		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(0, menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
+		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(current_menu.rect_global_position.x, menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	
 	elif direction == "down":
 		transition_time = transition_time_y
 		next_menu.rect_global_position = Vector2(0, menu_origin_size.y)
-		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(0, -menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.interpolate_property(current_menu, "rect_global_position", current_menu.rect_global_position, Vector2(current_menu.rect_global_position.x, -menu_origin_size.y), transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	tween.interpolate_property(next_menu, "rect_global_position", next_menu.rect_global_position, menu_origin_position, transition_time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	
 	tween.start()
@@ -91,12 +94,15 @@ func from_string(menu : String):
 			return levelselect
 		"maingame":
 			return maingame
+		"tutorial":
+			return tutorial
 		"credits":
 			return credits
 		_:
 			return mainmenu
 
 func setup_levelselect():
+	red.play("idle")
 	win_sprite.modulate = Color(1,1,1,0)
 	
 	for child in level_container.get_children():
@@ -150,14 +156,18 @@ func fade_in():
 func fade_out():
 	animation_player.play("fade_out")
 func blue_win():
+	red.play('sad')
 	win_sprite.texture = load("res://Sprites/bluewin.png")
 	win()
 func red_win():
+	red.play('happy')
+	red_blade.animation = 'vanish'
 	win_sprite.texture = load("res://Sprites/redwin.png")
 	win()
 
 func win():
-	tween.interpolate_property(win_sprite, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN )
+	
+	# tween.interpolate_property(win_sprite, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN )
 	tween.start()
 
 func _on_BackButton_pressed():
@@ -166,7 +176,16 @@ func _on_BackButton_pressed():
 func _on_Credits_pressed():
 	to_next("credits", "right")
 
+func _on_Tutorial_pressed():
+	to_next("tutorial", "right")
 
 func _on_Credits_meta_clicked(meta):
 	OS.shell_open(str(meta))
-	
+
+func _on_GiveUp_button_down():
+	board.GiveUp()
+
+func _on_TabContainer_tab_changed(tab):
+	$Tutorial/CenterContainer/VBoxContainer/TabContainer/II/TextureRect/AnimatedSprite.frame = 0
+	$Tutorial/CenterContainer/VBoxContainer/TabContainer/III/TextureRect2/AnimatedSprite.frame = 0
+	$Tutorial/CenterContainer/VBoxContainer/TabContainer/IV/TextureRect3/AnimatedSprite.frame = 0

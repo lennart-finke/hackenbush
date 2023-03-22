@@ -1,3 +1,8 @@
+# Ignoring copyrighted fonts
+*.TTF
+
+# Ignoring tools for making sprites
+*.aseprite
 /notes.txt
 
 # Ignoring android export files

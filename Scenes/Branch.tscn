@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Branch.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Disappear.tres" type="Material" id=2]
@@ -72,6 +72,30 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Start:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0705882, 0.0980392, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("End:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0705882, 0.0980392, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -147,6 +171,34 @@ tracks/4/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.7, 0.176382, 10, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("End:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0705882, 0.0980392, 1 ), Color( 0.894118, 0.890196, 0.870588, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Start:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0705882, 0.0980392, 1 ), Color( 0, 0.0705882, 0.0980392, 0 ) ]
+}
+
+[sub_resource type="SphereMesh" id=5]
+radius = 10.0
+height = 20.0
 
 [node name="Branch" type="Line2D" groups=["branch"]]
 material = ExtResource( 2 )
@@ -166,5 +218,15 @@ autoplay = "RESET"
 anims/RESET = SubResource( 2 )
 anims/default = SubResource( 4 )
 anims/die = SubResource( 3 )
+
+[node name="Start" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 0.0705882, 0.0980392, 1 )
+position = Vector2( 0, 5 )
+mesh = SubResource( 5 )
+
+[node name="End" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 0.0705882, 0.0980392, 1 )
+position = Vector2( 0, 5 )
+mesh = SubResource( 5 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

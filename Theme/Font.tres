@@ -1,7 +1,11 @@
-[gd_resource type="DynamicFont" load_steps=2 format=2]
+[gd_resource type="DynamicFont" load_steps=3 format=2]
 
-[ext_resource path="res://Theme/minimal5x7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Theme/BKANT.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Theme/minimal5x7.ttf" type="DynamicFontData" id=2]
 
 [resource]
 size = 32
+extra_spacing_top = -2
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
+fallback/0 = ExtResource( 2 )

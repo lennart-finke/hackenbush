@@ -3,12 +3,21 @@ tool
 
 signal be_cut(ID)
 
+onready var start = $Start
+onready var end = $End
+
+var visible_vertices : float = false
+
 export var ID : int
 export var p : int
 export var q : int
 
 func _ready():
 	var _x = connect("be_cut", get_parent().get_parent(), "Cut")
+	
+	if visible_vertices:
+		start.position = points[0]
+		end.position = points[len(points) - 1]
 	
 	for i in range(len(points) - 1):
 		var collision_shape = CollisionShape2D.new()

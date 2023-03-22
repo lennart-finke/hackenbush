@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=64 format=2]
 
-[ext_resource path="res://Sprites/red.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/GUI.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/logo.png" type="Texture" id=3]
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=4]
@@ -11,6 +10,15 @@
 [ext_resource path="res://Sprites/2P.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/credits.png" type="Texture" id=10]
 [ext_resource path="res://Theme/minimal5x7.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Sprites/white.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/question.png" type="Texture" id=13]
+[ext_resource path="res://Theme/PixelFont.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Sprites/logo2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/fall-Sheet.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/futile-Sheet.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/win-Sheet.png" type="Texture" id=18]
+[ext_resource path="res://Theme/ButtonBox.tres" type="StyleBox" id=19]
+[ext_resource path="res://Scenes/Red.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -154,8 +162,230 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
+[sub_resource type="StyleBoxFlat" id=45]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 15.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 9
+border_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 8.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=44]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 7.0
+bg_color = Color( 0, 0.0705882, 0.0980392, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 5
+border_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_color = Color( 0, 0.0705882, 0.0980392, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_top = 10.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 25.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.894118, 0.890196, 0.870588, 1 )
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color( 0, 0.0705882, 0.0980392, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.894118, 0.890196, 0.870588, 1 )
+border_color = Color( 0.894118, 0.890196, 0.870588, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 16 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 16 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 16 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 16 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 16 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 16 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 16 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 16 )
+region = Rect2( 1024, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 16 )
+region = Rect2( 1152, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 16 )
+region = Rect2( 1280, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 16 )
+region = Rect2( 1408, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 16 )
+region = Rect2( 1536, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 16 )
+region = Rect2( 1664, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 16 )
+region = Rect2( 1792, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 16 )
+region = Rect2( 1920, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 16 )
+region = Rect2( 2048, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 16 )
+region = Rect2( 2176, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 16 )
+region = Rect2( 2304, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 16 )
+region = Rect2( 2432, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 17 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 17 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 17 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 17 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 18 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 18 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 18 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 18 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 18 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 18 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 18 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 18 )
+region = Rect2( 1024, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 28 ), SubResource( 28 ), SubResource( 28 ), SubResource( 28 ), SubResource( 28 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "futile",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 41 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 37 ), SubResource( 38 ), SubResource( 37 ), SubResource( 38 ), SubResource( 38 ), SubResource( 38 ), SubResource( 40 ), SubResource( 39 ), SubResource( 42 ), SubResource( 43 ), SubResource( 43 ), SubResource( 43 ), SubResource( 43 ), SubResource( 43 ), SubResource( 43 ) ],
+"loop": true,
+"name": "win",
+"speed": 5.0
+} ]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -177,9 +407,9 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
 margin_left = 96.0
-margin_top = 183.0
+margin_top = 129.0
 margin_right = 480.0
-margin_bottom = 841.0
+margin_bottom = 895.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_right = 384.0
@@ -193,61 +423,91 @@ texture = ExtResource( 3 )
 [node name="CenterContainer2" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_top = 388.0
 margin_right = 384.0
-margin_bottom = 618.0
+margin_bottom = 726.0
 theme = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 111.0
-margin_right = 272.0
-margin_bottom = 230.0
+margin_left = 70.0
+margin_right = 314.0
+margin_bottom = 338.0
+custom_constants/separation = 10
 
-[node name="ComputerPlay" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 161.0
-margin_bottom = 74.0
-theme = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
-text = "1PLAYER"
-icon = ExtResource( 8 )
-
-[node name="LocalPlay" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 78.0
-margin_right = 161.0
-margin_bottom = 152.0
+[node name="ComputerPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 244.0
+margin_bottom = 77.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
-text = "2PLAYER"
-icon = ExtResource( 9 )
+custom_constants/hseparation = -2
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
+text = "1PLAYER"
+icon = ExtResource( 8 )
 
-[node name="Credits" type="ToolButton" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 156.0
-margin_right = 161.0
-margin_bottom = 230.0
+[node name="Tutorial" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 87.0
+margin_right = 244.0
+margin_bottom = 164.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_constants/hseparation = -2
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
+text = "HOWTOPLAY"
+icon = ExtResource( 13 )
+
+[node name="LocalPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 174.0
+margin_right = 244.0
+margin_bottom = 251.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
+custom_constants/hseparation = -2
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
+text = "2PLAYER"
+icon = ExtResource( 9 )
+
+[node name="Credits" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 261.0
+margin_right = 244.0
+margin_bottom = 338.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
+custom_constants/hseparation = -2
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
 text = "CREDITS"
 icon = ExtResource( 10 )
 
 [node name="Version" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 622.0
+margin_top = 730.0
 margin_right = 384.0
-margin_bottom = 658.0
+margin_bottom = 766.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 4 )
-text = "v 0.1
+text = "v 0.2
 
-This game is still in early beta!  "
+This game is still in its beta phase!  "
 
 [node name="LevelSelect" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -295,9 +555,10 @@ margin_top = -1024.0
 margin_right = 576.0
 
 [node name="Credits" type="MarginContainer" parent="."]
-margin_left = 1800.0
-margin_right = 2376.0
-margin_bottom = 1024.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2000.0
+margin_right = 2000.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Credits"]
 margin_right = 576.0
@@ -305,22 +566,24 @@ margin_bottom = 1024.0
 mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
-margin_left = 160.0
-margin_top = 173.0
-margin_right = 416.0
-margin_bottom = 850.0
+margin_left = 48.0
+margin_top = 75.0
+margin_right = 528.0
+margin_bottom = 949.0
 
 [node name="Credits" type="RichTextLabel" parent="Credits/CenterContainer/VBoxContainer"]
-margin_right = 256.0
-margin_bottom = 609.0
+margin_right = 480.0
+margin_bottom = 806.0
+rect_min_size = Vector2( 480, 0 )
 theme = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "(c) fi-le 2023
 
 This game is [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]free software[/wave][/rainbow] due to being published under [url=http://www.gnu.de/documents/gpl-2.0.de.html]GNU General Public License v2.0[/url] - and [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]open-source[/wave][/rainbow]! You can view the source code, check out planned features, fork the game or perhaps even contribute [url=https://github.com/file-acomplaint/hackenbush]here[/url].
 You're also say hi via email: [url=mailto:developer@fi-le.net]developer@fi-le.net[/url].
 
-Using logic from a [url=http://www.geometer.org/hackenbush/index.html][i]wonderful[/i] implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
+Using logic from a [url=http://www.geometer.org/hackenbush/index.html]wonderful implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
 
 Pixel Font by [url=https://khef.co/]Kawika Heftel[/url] under CC0. 
 
@@ -344,13 +607,213 @@ Thanks for playing!
 fit_content_height = true
 
 [node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer"]
-margin_top = 613.0
-margin_right = 256.0
-margin_bottom = 677.0
+margin_top = 810.0
+margin_right = 480.0
+margin_bottom = 874.0
 
 [node name="BackButton" parent="Credits/CenterContainer/VBoxContainer/CenterContainer" instance=ExtResource( 5 )]
-margin_left = 0.0
-margin_right = 256.0
+margin_left = 112.0
+margin_right = 368.0
+
+[node name="Tutorial" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 576.0
+margin_right = 576.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Tutorial"]
+margin_right = 576.0
+margin_bottom = 1024.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/CenterContainer"]
+margin_left = 35.0
+margin_top = 143.0
+margin_right = 540.0
+margin_bottom = 881.0
+
+[node name="TabContainer" type="TabContainer" parent="Tutorial/CenterContainer/VBoxContainer"]
+margin_right = 505.0
+margin_bottom = 670.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 670 )
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0.0705882, 0.0980392, 1 )
+custom_colors/font_color_bg = Color( 0, 0.0705882, 0.0980392, 1 )
+custom_colors/font_color_fg = Color( 0.894118, 0.890196, 0.870588, 1 )
+custom_styles/tab_fg = SubResource( 5 )
+custom_styles/tab_bg = SubResource( 7 )
+custom_styles/panel = SubResource( 6 )
+tab_align = 0
+
+[node name="I" type="VBoxContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 65.0
+custom_constants/separation = -62
+
+[node name="CenterContainer" type="CenterContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/I"]
+margin_right = 505.0
+margin_bottom = 384.0
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/I/CenterContainer"]
+margin_left = 60.0
+margin_right = 444.0
+margin_bottom = 384.0
+texture = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/I"]
+margin_top = 322.0
+margin_right = 505.0
+margin_bottom = 408.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/I/MarginContainer"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 450, 0 )
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
+text = "TUTORIAL1"
+autowrap = true
+
+[node name="II" type="VBoxContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 35.0
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/II"]
+margin_right = 505.0
+margin_bottom = 1.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/II/TextureRect"]
+position = Vector2( 249, 375 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 29 )
+animation = "futile"
+frame = 4
+speed_scale = 2.0
+playing = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/II"]
+margin_top = 5.0
+margin_right = 505.0
+margin_bottom = 91.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/II/MarginContainer"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 450, 0 )
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
+text = "TUTORIAL2"
+autowrap = true
+
+[node name="III" type="VBoxContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/III"]
+margin_left = -4.0
+margin_top = 3.0
+margin_right = 501.0
+margin_bottom = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/III/TextureRect2"]
+position = Vector2( 249, 375 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 29 )
+frame = 13
+speed_scale = 2.0
+playing = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/III"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/III/MarginContainer2"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 450, 0 )
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
+text = "TUTORIAL3"
+autowrap = true
+
+[node name="IV" type="VBoxContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/IV"]
+margin_left = -4.0
+margin_top = 3.0
+margin_right = 501.0
+margin_bottom = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/IV/TextureRect3"]
+position = Vector2( 249, 375 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 29 )
+animation = "win"
+frame = 14
+speed_scale = 2.0
+playing = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/IV"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/IV/MarginContainer3"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 450, 0 )
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
+text = "TUTORIAL4"
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Tutorial/CenterContainer/VBoxContainer"]
+margin_top = 674.0
+margin_right = 505.0
+margin_bottom = 738.0
+
+[node name="BackButton" parent="Tutorial/CenterContainer/VBoxContainer/CenterContainer" instance=ExtResource( 5 )]
+margin_left = 124.0
+margin_right = 380.0
 
 [node name="MainGameStatic" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -373,36 +836,46 @@ mouse_filter = 2
 texture = ExtResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MainGameStatic"]
-anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -108.0
-margin_top = -150.0
+margin_top = -125.0
 mouse_filter = 2
 custom_constants/margin_right = 25
+custom_constants/margin_left = 50
 custom_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGameStatic/MarginContainer"]
-margin_right = 100.0
-margin_bottom = 125.0
+margin_left = 50.0
+margin_right = 551.0
+margin_bottom = 100.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainGameStatic/MarginContainer/VBoxContainer"]
-margin_right = 100.0
+margin_right = 501.0
 margin_bottom = 100.0
 
-[node name="Turn" type="TextureRect" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 100.0
+[node name="Red" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 20 )]
+margin_left = 0.0
+margin_right = 200.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="GiveUp" type="TextureButton" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 304.0
 margin_bottom = 100.0
-texture = ExtResource( 1 )
+texture_normal = ExtResource( 12 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ComputerPlay" to="." method="_on_ComputerPlay_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LocalPlay" to="." method="_on_LocalPlay_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="meta_clicked" from="Credits/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_meta_clicked"]
 [connection signal="pressed" from="Credits/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="tab_changed" from="Tutorial/CenterContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="Tutorial/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="button_down" from="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/GiveUp" to="." method="_on_GiveUp_button_down"]

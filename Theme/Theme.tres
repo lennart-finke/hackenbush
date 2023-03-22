@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
 
-[ext_resource path="res://Theme/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Theme/PixelFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Theme/Font.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
@@ -56,7 +57,10 @@ anti_aliasing = false
 
 [resource]
 default_font = ExtResource( 1 )
+Button/fonts/font = ExtResource( 1 )
 Button/styles/focus = SubResource( 6 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 5 )
+Label/fonts/font = ExtResource( 2 )
+TabContainer/constants/hseparation = 14
