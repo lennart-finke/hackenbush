@@ -1,5 +1,6 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
+[ext_resource path="res://Scenes/Blue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/logo.png" type="Texture" id=3]
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=4]
@@ -19,6 +20,7 @@
 [ext_resource path="res://Sprites/win-Sheet.png" type="Texture" id=18]
 [ext_resource path="res://Theme/ButtonBox.tres" type="StyleBox" id=19]
 [ext_resource path="res://Scenes/Red.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Theme/Font.tres" type="DynamicFont" id=21]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -176,6 +178,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+expand_margin_left = 10.0
+expand_margin_right = 5.0
 expand_margin_top = 8.0
 anti_aliasing = false
 
@@ -193,6 +197,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+expand_margin_left = 10.0
+expand_margin_right = 5.0
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=4]
@@ -390,6 +396,7 @@ animations = [ {
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -427,13 +434,13 @@ margin_bottom = 726.0
 theme = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 70.0
-margin_right = 314.0
+margin_left = 77.0
+margin_right = 307.0
 margin_bottom = 338.0
 custom_constants/separation = 10
 
 [node name="ComputerPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 244.0
+margin_right = 230.0
 margin_bottom = 77.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
@@ -441,16 +448,18 @@ custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
-custom_constants/hseparation = -2
+custom_constants/hseparation = 10
+custom_fonts/font = ExtResource( 14 )
 custom_styles/hover = SubResource( 45 )
 custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
 text = "1PLAYER"
 icon = ExtResource( 8 )
+icon_align = 2
 
 [node name="Tutorial" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 87.0
-margin_right = 244.0
+margin_right = 230.0
 margin_bottom = 164.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
@@ -458,7 +467,8 @@ custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_constants/hseparation = -2
+custom_constants/hseparation = 10
+custom_fonts/font = ExtResource( 14 )
 custom_styles/hover = SubResource( 45 )
 custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
@@ -467,7 +477,7 @@ icon = ExtResource( 13 )
 
 [node name="LocalPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 174.0
-margin_right = 244.0
+margin_right = 230.0
 margin_bottom = 251.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
@@ -475,7 +485,7 @@ custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
-custom_constants/hseparation = -2
+custom_constants/hseparation = 10
 custom_styles/hover = SubResource( 45 )
 custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
@@ -484,7 +494,7 @@ icon = ExtResource( 9 )
 
 [node name="Credits" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 261.0
-margin_right = 244.0
+margin_right = 230.0
 margin_bottom = 338.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
@@ -492,7 +502,7 @@ custom_colors/font_color_focus = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_hover = Color( 0.682353, 0.12549, 0.0705882, 1 )
 custom_colors/font_color_pressed = Color( 0.682353, 0.12549, 0.0705882, 1 )
-custom_constants/hseparation = -2
+custom_constants/hseparation = 10
 custom_styles/hover = SubResource( 45 )
 custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
@@ -554,6 +564,73 @@ margin_right = 256.0
 margin_top = -1024.0
 margin_right = 576.0
 
+[node name="MainGameStatic" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainGameStatic"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Win" type="TextureRect" parent="MainGameStatic/CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = 256.0
+margin_right = 544.0
+margin_bottom = 768.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainGameStatic"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -322.0
+margin_top = -171.0
+margin_right = 322.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGameStatic/MarginContainer"]
+margin_right = 644.0
+margin_bottom = 171.0
+custom_constants/separation = 82
+
+[node name="Red" parent="MainGameStatic/MarginContainer/HBoxContainer" instance=ExtResource( 20 )]
+margin_left = 0.0
+margin_right = 200.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Line2D" type="Line2D" parent="MainGameStatic/MarginContainer/HBoxContainer/Red"]
+position = Vector2( -50, -899 )
+points = PoolVector2Array( -836, 1066, 374, 1066 )
+width = 66.0
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+
+[node name="GiveUp" type="TextureButton" parent="MainGameStatic/MarginContainer/HBoxContainer"]
+show_behind_parent = true
+margin_left = 282.0
+margin_right = 362.0
+margin_bottom = 171.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+
+[node name="Blue" parent="MainGameStatic/MarginContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 444.0
+margin_right = 644.0
+margin_bottom = 171.0
+
+[node name="Line2D2" type="Line2D" parent="MainGameStatic/MarginContainer/HBoxContainer/Blue"]
+position = Vector2( -438, -899 )
+points = PoolVector2Array( 1468, 1066, 308, 1066 )
+width = 66.0
+default_color = Color( 0, 0.372549, 0.45098, 1 )
+
 [node name="Credits" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -563,17 +640,16 @@ margin_right = 2000.0
 [node name="CenterContainer" type="CenterContainer" parent="Credits"]
 margin_right = 576.0
 margin_bottom = 1024.0
-mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
 margin_left = 48.0
-margin_top = 75.0
+margin_top = 106.0
 margin_right = 528.0
-margin_bottom = 949.0
+margin_bottom = 918.0
 
 [node name="Credits" type="RichTextLabel" parent="Credits/CenterContainer/VBoxContainer"]
 margin_right = 480.0
-margin_bottom = 806.0
+margin_bottom = 744.0
 rect_min_size = Vector2( 480, 0 )
 theme = ExtResource( 4 )
 custom_fonts/normal_font = ExtResource( 14 )
@@ -588,8 +664,6 @@ Using logic from a [url=http://www.geometer.org/hackenbush/index.html]wonderful 
 Pixel Font by [url=https://khef.co/]Kawika Heftel[/url] under CC0. 
 
 Thanks for playing!
-
-
 "
 text = "(c) fi-le 2023
 
@@ -601,15 +675,13 @@ Using logic from a wonderful implementation of Red-Blue-Hackenbush for Mac and P
 Pixel Font by Kawika Heftel under CC0. 
 
 Thanks for playing!
-
-
 "
 fit_content_height = true
 
 [node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer"]
-margin_top = 810.0
+margin_top = 748.0
 margin_right = 480.0
-margin_bottom = 874.0
+margin_bottom = 812.0
 
 [node name="BackButton" parent="Credits/CenterContainer/VBoxContainer/CenterContainer" instance=ExtResource( 5 )]
 margin_left = 112.0
@@ -679,6 +751,7 @@ margin_bottom = 56.0
 rect_min_size = Vector2( 450, 0 )
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
+custom_fonts/font = ExtResource( 21 )
 text = "TUTORIAL1"
 autowrap = true
 
@@ -697,7 +770,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "futile"
-frame = 4
+frame = 2
 speed_scale = 2.0
 playing = true
 
@@ -740,7 +813,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
-frame = 13
+frame = 16
 speed_scale = 2.0
 playing = true
 
@@ -783,7 +856,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 14
+frame = 7
 speed_scale = 2.0
 playing = true
 
@@ -815,56 +888,6 @@ margin_bottom = 738.0
 margin_left = 124.0
 margin_right = 380.0
 
-[node name="MainGameStatic" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="MainGameStatic"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="Win" type="TextureRect" parent="MainGameStatic/CenterContainer"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 32.0
-margin_top = 256.0
-margin_right = 544.0
-margin_bottom = 768.0
-mouse_filter = 2
-texture = ExtResource( 7 )
-
-[node name="MarginContainer" type="MarginContainer" parent="MainGameStatic"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -125.0
-mouse_filter = 2
-custom_constants/margin_right = 25
-custom_constants/margin_left = 50
-custom_constants/margin_bottom = 25
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGameStatic/MarginContainer"]
-margin_left = 50.0
-margin_right = 551.0
-margin_bottom = 100.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainGameStatic/MarginContainer/VBoxContainer"]
-margin_right = 501.0
-margin_bottom = 100.0
-
-[node name="Red" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 20 )]
-margin_left = 0.0
-margin_right = 200.0
-rect_min_size = Vector2( 200, 0 )
-
-[node name="GiveUp" type="TextureButton" parent="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 204.0
-margin_right = 304.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 12 )
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
@@ -874,8 +897,8 @@ texture_normal = ExtResource( 12 )
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LocalPlay" to="." method="_on_LocalPlay_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="button_down" from="MainGameStatic/MarginContainer/HBoxContainer/GiveUp" to="." method="_on_GiveUp_button_down"]
 [connection signal="meta_clicked" from="Credits/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_meta_clicked"]
 [connection signal="pressed" from="Credits/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="tab_changed" from="Tutorial/CenterContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="pressed" from="Tutorial/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="button_down" from="MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/GiveUp" to="." method="_on_GiveUp_button_down"]

@@ -13,11 +13,6 @@ func _process(delta):
 	var new_position = get_global_mouse_position()
 	var vel = (position - new_position) / delta
 	
-	if Input.is_action_pressed("click"):
-		cutting = true
-	else:
-		cutting = false
-	
 	if cutting:
 		collision_trail.b = position - new_position
 		trail.add_point(global_position)
@@ -25,6 +20,11 @@ func _process(delta):
 		trail.remove_point(0)
 	while trail.get_point_count() > max_length:
 		trail.remove_point(0)
+	
+	if Input.is_action_pressed("click"):
+		cutting = true
+	else:
+		cutting = false
 	
 	position = new_position
 

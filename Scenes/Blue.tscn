@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Sprites/idle.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/blade.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/blade.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/blueidle.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=55]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -15,10 +15,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3 ]
+"values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=56]
 resource_name = "happy"
 length = 0.001
 tracks/0/type = "value"
@@ -34,9 +34,9 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="Animation" id=57]
 resource_name = "idle"
-length = 15.0
+length = 19.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -45,13 +45,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.9, 3, 5, 10, 10.1 ),
+"times": PoolRealArray( 0, 7.2, 7.3, 11.9, 14.2, 14.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 2, 3, 1, 0, 1 ]
+"values": [ 2, 3, 2, 1, 0, 1 ]
 }
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=58]
 resource_name = "sad"
 length = 0.001
 loop = true
@@ -69,19 +69,19 @@ tracks/0/keys = {
 }
 
 [sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 29, 46 )
 
 [sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 30, 46 )
 
 [sub_resource type="AtlasTexture" id=53]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 1 )
 region = Rect2( 30, 0, 30, 46 )
 
 [sub_resource type="AtlasTexture" id=54]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 1 )
 region = Rect2( 60, 0, 30, 46 )
 
 [sub_resource type="SpriteFrames" id=51]
@@ -102,28 +102,30 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Red" type="TextureRect"]
-margin_left = 208.0
-margin_right = 208.0
+[node name="Blue" type="TextureRect"]
+margin_left = 204.0
+margin_right = 404.0
 margin_bottom = 100.0
+rect_min_size = Vector2( 200, 0 )
 
 [node name="Idle" type="Sprite" parent="."]
-position = Vector2( 120, 73 )
+position = Vector2( 68, 73 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 hframes = 6
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Idle"]
 autoplay = "idle"
-anims/RESET = SubResource( 46 )
-anims/happy = SubResource( 55 )
-anims/idle = SubResource( 47 )
-anims/sad = SubResource( 56 )
+anims/RESET = SubResource( 55 )
+anims/happy = SubResource( 56 )
+anims/idle = SubResource( 57 )
+anims/sad = SubResource( 58 )
 
 [node name="Blade" type="AnimatedSprite" parent="."]
-modulate = Color( 0.682353, 0.12549, 0.0705882, 1 )
-position = Vector2( 217, 88 )
+modulate = Color( 0, 0.372549, 0.45098, 1 )
+position = Vector2( -21, 89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 51 )
 playing = true
+flip_h = true

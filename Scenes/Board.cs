@@ -69,6 +69,7 @@ public class Board : Node {
 	public Node Helper;
 	public CPUParticles2D Confetti;
 	public AnimatedSprite BladeRed;
+	public AnimatedSprite BladeBlue;
 	public Node2D EdgeContainer;
 	public Control GUI;
 	public Area2D Pointer;
@@ -81,7 +82,8 @@ public class Board : Node {
 	public override void _Ready() {
 		Helper = GetNode<Node>("/root/Helper");
 		Confetti = GetNode<CPUParticles2D>("CPUParticles2D");
-		BladeRed = GetNode<AnimatedSprite>("UILayer/GUI/MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Red/Blade");
+		BladeRed = GetNode<AnimatedSprite>("UILayer/GUI/MainGameStatic/MarginContainer/HBoxContainer/Red/Blade");
+		BladeBlue = GetNode<AnimatedSprite>("UILayer/GUI/MainGameStatic/MarginContainer/HBoxContainer/Blue/Blade");
 		EdgeContainer = GetNode<Node2D>("Edges");
 		Pointer = GetNode<Area2D>("Pointer");
 		CameraAnimator = GetNode<AnimationPlayer>("Camera/AnimationPlayer");
@@ -247,6 +249,7 @@ public class Board : Node {
 		}
 		
 		if (redsTurn) BladeRed.Animation = "default";
+		else BladeBlue.Animation = "default";
 	}
 	
 	public bool IsViableMove(string color) {
@@ -261,7 +264,7 @@ public class Board : Node {
 			return;
 		}
 		
-		BladeRed.Animation = "strike";
+		
 		Move(edgeID);
 		if (againstComputer) {
 			Clock.WaitTime = 1.0f;
@@ -274,6 +277,9 @@ public class Board : Node {
 	public void Move(int edgeID) {
 		// Called when a Computer or a Human would like to make a move
 		Hackenbush.cutedge(edgeID, G);
+		
+		if (redsTurn) BladeRed.Animation = "strike";
+		else BladeBlue.Animation = "strike";
 		
 		redsTurn = !redsTurn;
 		// We change the cursor color for 2 player mode.

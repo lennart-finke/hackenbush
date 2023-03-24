@@ -18,6 +18,7 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0.0705882, 0.0980392, 1 )
 config/icon="res://Sprites/logo.png"
+config/quit_on_go_back=false
 
 [autoload]
 
@@ -33,7 +34,7 @@ gdscript/warnings/return_value_discarded=false
 window/size/width=576
 window/size/height=1024
 window/handheld/orientation="portrait"
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [global]
@@ -65,7 +66,13 @@ click={
 
 [locale]
 
-translations=PoolStringArray( "res://Text/text.de.translation", "res://Text/text.en.translation" )
+test="de"
+fallback="ja"
+translations=PoolStringArray( "res://Text/text.de.translation", "res://Text/text.en.translation", "res://Text/text.ja.translation" )
+locale_filter=[ 0, [  ] ]
+translation_remaps={
+"res://Theme/PixelFont.tres": PoolStringArray(  )
+}
 
 [physics]
 

@@ -29,8 +29,10 @@ onready var timer := $Timer
 onready var animation_player := $AnimationPlayer
 onready var win_sprite := $MainGameStatic/CenterContainer/Win
 onready var laurel := $LevelSelect/CenterContainer/VBoxContainer/CenterContainer/Laurel
-onready var red := $MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Red/Idle/AnimationPlayer
-onready var red_blade := $MainGameStatic/MarginContainer/VBoxContainer/HBoxContainer/Red/Blade
+onready var red := $MainGameStatic/MarginContainer/HBoxContainer/Red/Idle/AnimationPlayer
+onready var red_blade := $MainGameStatic/MarginContainer/HBoxContainer/Red/Blade
+onready var blue := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Idle/AnimationPlayer
+onready var blue_blade := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Blade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -101,8 +103,20 @@ func from_string(menu : String):
 		_:
 			return mainmenu
 
+
+func _notification(event):
+	if board == null:
+		return
+	if board.inGame or current_menu == mainmenu:
+		return
+	
+	if event == MainLoop.NOTIFICATION_WM_QUIT_REQUEST or event == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST: 
+		to_next("mainmenu", "left")
+
 func setup_levelselect():
 	red.play("idle")
+	blue.play("idle")
+	
 	win_sprite.modulate = Color(1,1,1,0)
 	
 	for child in level_container.get_children():
@@ -157,18 +171,22 @@ func fade_out():
 	animation_player.play("fade_out")
 func blue_win():
 	red.play('sad')
+	blue.play('happy')
 	win_sprite.texture = load("res://Sprites/bluewin.png")
 	win()
 func red_win():
 	red.play('happy')
-	red_blade.animation = 'vanish'
+	blue.play('sad')
 	win_sprite.texture = load("res://Sprites/redwin.png")
 	win()
 
 func win():
-	
+	red_blade.animation = 'vanish'
+	blue_blade.animation = 'vanish'
 	# tween.interpolate_property(win_sprite, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN )
 	tween.start()
+
+
 
 func _on_BackButton_pressed():
 	to_next("mainmenu", "left")
