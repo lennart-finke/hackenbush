@@ -66,7 +66,7 @@ click={
 
 [locale]
 
-test="de"
+test="ja"
 fallback="ja"
 translations=PoolStringArray( "res://Text/text.de.translation", "res://Text/text.en.translation", "res://Text/text.ja.translation" )
 locale_filter=[ 0, [  ] ]
