@@ -72,6 +72,7 @@ public class Board : Node {
 	public AnimatedSprite BladeBlue;
 	public Node2D EdgeContainer;
 	public Control GUI;
+	public AudioStreamPlayer2D SFX;
 	public Area2D Pointer;
 	public AnimationPlayer CameraAnimator;
 	public Timer Clock;
@@ -88,8 +89,10 @@ public class Board : Node {
 		Pointer = GetNode<Area2D>("Pointer");
 		CameraAnimator = GetNode<AnimationPlayer>("Camera/AnimationPlayer");
 		GUI = GetNode<Control>("UILayer/GUI");
+		SFX = GUI.GetNode<AudioStreamPlayer2D>("SFX");
 		Clock = GetNode<Timer>("Timer");
 		Clock2 = GetNode<Timer>("Timer2");
+		
 		Clock.Connect("timeout", this, "ComputerMove");
 	}
 	
@@ -264,19 +267,22 @@ public class Board : Node {
 			return;
 		}
 		
-		
 		Move(edgeID);
-		if (againstComputer) {
-			Clock.WaitTime = 1.0f;
-			Clock.Start();
-			humanTurn = false;
-		}
 		
+		humanTurn = false; // We block human moves for a second, no matter which mode.
+		
+		
+		Clock.WaitTime = 1.0f;
+		Clock.Start();
 	}
 	
 	public void Move(int edgeID) {
 		// Called when a Computer or a Human would like to make a move
 		Hackenbush.cutedge(edgeID, G);
+		
+		SFX.Stream = ResourceLoader.Load("res://Sound/woosh.wav") as AudioStream;
+		SFX.PitchScale = redsTurn ? 1f : 1.5f;
+		SFX.Play();
 		
 		if (redsTurn) BladeRed.Animation = "strike";
 		else BladeBlue.Animation = "strike";
@@ -314,6 +320,8 @@ public class Board : Node {
 	
 	public void ComputerMove() {
 		Clock.Stop();
+		
+		if (!againstComputer) {humanTurn = true; return;}
 		
 		int bestMove = redsTurn ? Hackenbush.Bestred : Hackenbush.Bestblue;
 		if (bestMove < 0) {

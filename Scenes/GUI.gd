@@ -1,6 +1,9 @@
 extends Control
 
-# Adapted from https://www.youtube.com/watch?v=3lgjj7Wccyw
+# Using a design idea from https://www.youtube.com/watch?v=3lgjj7Wccyw
+
+var languages = TranslationServer.get_loaded_locales()
+var language_index = 0
 
 var transition_time_x : float = 1
 var transition_time_y : float = 1
@@ -22,6 +25,7 @@ onready var mainmenu := $MainMenu
 onready var levelselect := $LevelSelect
 onready var credits := $Credits
 onready var maingame := $MainGame
+onready var maingame_static := $MainGameStatic
 onready var tutorial := $Tutorial
 onready var tween := $Tween
 onready var level_container := $LevelSelect/CenterContainer/VBoxContainer/GridContainer
@@ -33,16 +37,29 @@ onready var red := $MainGameStatic/MarginContainer/HBoxContainer/Red/Idle/Animat
 onready var red_blade := $MainGameStatic/MarginContainer/HBoxContainer/Red/Blade
 onready var blue := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Idle/AnimationPlayer
 onready var blue_blade := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Blade
-
+onready var music := $Music
+onready var SFX := $SFX
+onready var SFX_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/SFX
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_viewport().connect("size_changed", self, "set_viewport_size")
 	current_menu = mainmenu
 	set_viewport_size()
 	
+	setup_sound(Helper.config.get_value(Helper.section, "SFX"))
+	
 	for child in get_children():
 		if child is MarginContainer:
 			menus.append(child)
+	
+	# We find the language code used:
+	var lang := OS.get_locale_language()
+	var i : int = 0
+	for l in languages:
+		if lang == l:
+			language_index = i
+			return
+		i += 1
 
 func set_viewport_size():
 	menu_origin_size = get_viewport_rect().size
@@ -114,6 +131,8 @@ func _notification(event):
 		to_next("mainmenu", "left")
 
 func setup_levelselect():
+	maingame_static.rect_position = Vector2(0,2000)
+	
 	red.play("idle")
 	blue.play("idle")
 	
@@ -136,18 +155,15 @@ func setup_levelselect():
 	# if the next world is unlocked, show completion symbol
 	laurel.visible = Helper.config.get_value("Release", "unlocked")[world+1][0]
 
-func _on_ComputerPlay_pressed():
-	to_next("levelselect", "right")
-	board.againstComputer = true
-
-func _on_LocalPlay_pressed():
-	to_next("levelselect", "right")
-	board.againstComputer = false
-
 func level_select(level : int):
 	if board.inGame:
 		return
-	 
+	
+	SFX.stream = load("res://Sound/click.wav")
+	SFX.play()
+	
+	maingame_static.rect_position = Vector2.ZERO
+	
 	board.world = world
 	board.level = level
 	
@@ -155,6 +171,10 @@ func level_select(level : int):
 	board.FromFile()
 	board.MakeGame()
 	board.Render()
+	
+	if !music.playing:
+		music.stream = load("res://Sound/Up2.wav")
+		music.play()
 	
 	to_next("maingame", "up")
 	timer.start()
@@ -172,21 +192,41 @@ func fade_out():
 func blue_win():
 	red.play('sad')
 	blue.play('happy')
+	if !music.playing:
+		music.stream = load("res://Sound/Down3.wav")
+		music.play()
 	win_sprite.texture = load("res://Sprites/bluewin.png")
 	win()
 func red_win():
 	red.play('happy')
 	blue.play('sad')
 	win_sprite.texture = load("res://Sprites/redwin.png")
+	music.stream = load("res://Sound/Down2.wav")
+	music.play()
 	win()
 
 func win():
+	SFX.stream = load("res://Sound/cannon.wav")
+	SFX.play()
+	
 	red_blade.animation = 'vanish'
 	blue_blade.animation = 'vanish'
 	# tween.interpolate_property(win_sprite, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN )
 	tween.start()
 
+func _on_ComputerPlay_pressed():
+	to_next("levelselect", "right")
+	if !music.playing:
+		music.stream = load("res://Sound/Down.wav")
+		music.play()
+	board.againstComputer = true
 
+func _on_LocalPlay_pressed():
+	to_next("levelselect", "right")
+	if !music.playing:
+		music.stream = load("res://Sound/Down.wav")
+		music.play()
+	board.againstComputer = false
 
 func _on_BackButton_pressed():
 	to_next("mainmenu", "left")
@@ -201,9 +241,38 @@ func _on_Credits_meta_clicked(meta):
 	OS.shell_open(str(meta))
 
 func _on_GiveUp_button_down():
+	if !music.playing:
+		music.stream = load("res://Sound/Down.wav")
+		music.play()
 	board.GiveUp()
 
-func _on_TabContainer_tab_changed(tab):
+func _on_TabContainer_tab_changed(_tab):
+	_on_Button_pressed()
 	$Tutorial/CenterContainer/VBoxContainer/TabContainer/II/TextureRect/AnimatedSprite.frame = 0
 	$Tutorial/CenterContainer/VBoxContainer/TabContainer/III/TextureRect2/AnimatedSprite.frame = 0
 	$Tutorial/CenterContainer/VBoxContainer/TabContainer/IV/TextureRect3/AnimatedSprite.frame = 0
+
+func _on_Language_pressed():
+	language_index = (language_index + 1) % len(languages)
+	TranslationServer.set_locale(languages[language_index])
+
+func _on_Button_pressed():
+	SFX.stream = load("res://Sound/click.wav")
+	SFX.play()
+
+func _on_SFX_pressed():
+	var sound := !bool(Helper.config.get_value(Helper.section, "SFX"))
+	
+	setup_sound(sound)
+	
+	Helper.config.set_value(Helper.section, "SFX", sound)
+	Helper.save()
+
+func setup_sound(mute : bool):
+	SFX.playing = false
+	music.playing = false
+	
+	# Hacky, but it works: We adjust the max distance instead of volume.
+	SFX.max_distance = 1 if mute else 2000
+	music.max_distance = 1 if mute else 2000
+	SFX_button.icon = load("res://Sprites/nosfx.png" if mute else "res://Sprites/sfx.png")

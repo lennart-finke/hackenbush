@@ -9,9 +9,8 @@ var cutting := false
 func set_color(c : Color):
 	trail.default_color = c
 
-func _process(delta):
+func _process(_delta):
 	var new_position = get_global_mouse_position()
-	var vel = (position - new_position) / delta
 	
 	if cutting:
 		collision_trail.b = position - new_position

@@ -33,6 +33,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=576
 window/size/height=1024
+window/size/borderless=true
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
@@ -66,9 +67,7 @@ click={
 
 [locale]
 
-test="ja"
-fallback="ja"
-translations=PoolStringArray( "res://Text/text.de.translation", "res://Text/text.en.translation", "res://Text/text.ja.translation" )
+translations=PoolStringArray( "res://Text/text.en.translation", "res://Text/text.de.translation", "res://Text/text.ja.translation" )
 locale_filter=[ 0, [  ] ]
 translation_remaps={
 "res://Theme/PixelFont.tres": PoolStringArray(  )
