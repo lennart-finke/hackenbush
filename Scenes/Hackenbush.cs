@@ -413,7 +413,6 @@ public class Hackenbush : Node {
 		componentcount = findcomponents(g);
 		for (i = 0; i < componentcount; i++) {
 			G = new game(g);
-			//inithashtable(0);
 			
 			j = 0;
 			while(G.edge[j * 4 + 0] != -1) {
@@ -507,7 +506,7 @@ public class Hackenbush : Node {
 			redmin.den = 1;
 			redmin.num = 10000;
 		}
-		//surmiddle(&bluemax, &redmin, value);
+		
 		if (true) {
 			if (brcnt == 0) Bestred = -1;
 			else Bestred = bestred[rand(brcnt)];

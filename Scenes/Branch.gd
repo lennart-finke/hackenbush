@@ -14,6 +14,8 @@ export var q : int
 
 func _ready():
 	var _x = connect("be_cut", get_parent().get_parent(), "Cut")
+
+	visible_vertices = Helper.config.get_value(Helper.section, "display_nodes")
 	
 	if visible_vertices:
 		start.position = points[0]
@@ -32,6 +34,12 @@ func die():
 	remove_from_group("branch")
 	$Area2D.queue_free()
 	$AnimationPlayer.play("die")
+
+func change_color():
+	if default_color.is_equal_approx(Color("#ae2012")):
+		default_color = Color("#005f73")
+	elif default_color.is_equal_approx(Color("#005f73")):
+		default_color = Color("#ae2012")
 
 func die_but_really_this_time():
 	get_parent().remove_child(self)

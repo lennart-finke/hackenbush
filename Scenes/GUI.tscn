@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Scenes/Blue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI.gd" type="Script" id=2]
@@ -22,9 +22,11 @@
 [ext_resource path="res://Scenes/Red.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Theme/Font.tres" type="DynamicFont" id=21]
 [ext_resource path="res://Sprites/lang.png" type="Texture" id=22]
-[ext_resource path="res://Sound/Down.wav" type="AudioStream" id=23]
+[ext_resource path="res://Sound/Down.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Sound/woosh.wav" type="AudioStream" id=24]
 [ext_resource path="res://Sprites/sfx.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/invisible.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/puzzle.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -420,30 +422,41 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/CenterContainer"]
 margin_left = 160.0
-margin_top = 451.0
+margin_top = 410.0
 margin_right = 416.0
-margin_bottom = 573.0
+margin_bottom = 614.0
 
 [node name="CenterContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
 margin_right = 256.0
-margin_bottom = 50.0
+margin_bottom = 64.0
 
 [node name="Laurel" type="TextureRect" parent="LevelSelect/CenterContainer/VBoxContainer/CenterContainer"]
 margin_left = 103.0
 margin_right = 153.0
-margin_bottom = 50.0
+margin_bottom = 64.0
 texture = ExtResource( 6 )
 
-[node name="GridContainer" type="GridContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
-margin_top = 54.0
+[node name="VBoxContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_top = 68.0
 margin_right = 256.0
-margin_bottom = 54.0
+margin_bottom = 132.0
+
+[node name="NextButton" parent="LevelSelect/CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_right = 256.0
+flip_h = true
+flip_v = true
+
+[node name="GridContainer" type="GridContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 256.0
+margin_bottom = 136.0
 columns = 4
 
 [node name="MarginContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
-margin_top = 58.0
+margin_top = 140.0
 margin_right = 256.0
-margin_bottom = 122.0
+margin_bottom = 204.0
 
 [node name="BackButton" parent="LevelSelect/CenterContainer/VBoxContainer/MarginContainer" instance=ExtResource( 5 )]
 margin_left = 0.0
@@ -463,9 +476,9 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
 margin_left = 96.0
-margin_top = 92.0
+margin_top = 85.0
 margin_right = 480.0
-margin_bottom = 932.0
+margin_bottom = 938.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_right = 384.0
@@ -479,17 +492,17 @@ texture = ExtResource( 3 )
 [node name="CenterContainer2" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_top = 388.0
 margin_right = 384.0
-margin_bottom = 800.0
+margin_bottom = 813.0
 theme = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 82.0
-margin_right = 302.0
-margin_bottom = 412.0
+margin_left = 43.0
+margin_right = 340.0
+margin_bottom = 425.0
 custom_constants/separation = 10
 
-[node name="ComputerPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 220.0
+[node name="Play" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 297.0
 margin_bottom = 77.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
@@ -508,7 +521,7 @@ icon_align = 2
 
 [node name="Tutorial" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 87.0
-margin_right = 220.0
+margin_right = 297.0
 margin_bottom = 164.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
@@ -524,9 +537,9 @@ custom_styles/normal = ExtResource( 19 )
 text = "HOWTOPLAY"
 icon = ExtResource( 13 )
 
-[node name="LocalPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="LevelEditor" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 174.0
-margin_right = 220.0
+margin_right = 297.0
 margin_bottom = 251.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
@@ -538,12 +551,13 @@ custom_constants/hseparation = 10
 custom_styles/hover = SubResource( 45 )
 custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
-text = "2PLAYER"
-icon = ExtResource( 9 )
+text = "EDITOR"
+icon = ExtResource( 27 )
+icon_align = 2
 
 [node name="Credits" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 261.0
-margin_right = 220.0
+margin_right = 297.0
 margin_bottom = 338.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.682353, 0.12549, 0.0705882, 1 )
@@ -560,13 +574,13 @@ icon = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 348.0
-margin_right = 220.0
-margin_bottom = 412.0
+margin_right = 297.0
+margin_bottom = 425.0
 custom_constants/separation = 16
 
 [node name="Language" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer"]
 margin_right = 57.0
-margin_bottom = 64.0
+margin_bottom = 77.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -582,7 +596,7 @@ icon = ExtResource( 22 )
 [node name="SFX" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer"]
 margin_left = 73.0
 margin_right = 130.0
-margin_bottom = 64.0
+margin_bottom = 77.0
 theme = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -595,13 +609,45 @@ custom_styles/pressed = SubResource( 44 )
 custom_styles/normal = ExtResource( 19 )
 icon = ExtResource( 25 )
 
+[node name="Nodes" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 146.0
+margin_right = 203.0
+margin_bottom = 77.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
+custom_constants/hseparation = 10
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
+icon = ExtResource( 26 )
+
+[node name="LocalPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 219.0
+margin_right = 297.0
+margin_bottom = 77.0
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
+custom_constants/hseparation = 10
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = ExtResource( 19 )
+icon = ExtResource( 9 )
+
 [node name="Version" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 804.0
+margin_top = 817.0
 margin_right = 384.0
-margin_bottom = 840.0
+margin_bottom = 853.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 4 )
-text = "v 0.3
+text = "v 0.4
 
 This game is still in its beta phase!  "
 
@@ -633,7 +679,7 @@ bbcode_text = "(c) fi-le 2023
 This game is [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]free software[/wave][/rainbow] due to being published under [url=http://www.gnu.de/documents/gpl-2.0.de.html]GNU General Public License v2.0[/url] - and [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]open-source[/wave][/rainbow]! You can view the source code, check out planned features, fork the game or perhaps even contribute [url=https://github.com/file-acomplaint/hackenbush]here[/url].
 You can also say hi via email: [url=mailto:developer@fi-le.net]developer@fi-le.net[/url].
 
-Using logic from a [url=http://www.geometer.org/hackenbush/index.html]wonderful implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
+Using logic and levels from a [url=http://www.geometer.org/hackenbush/index.html]wonderful implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
 
 Fonts by [url=http://www.asterism-m.com/]さつやこ[/url] and [url=https://khef.co/]Kawika Heftel[/url] under Creative Commons. 
 Sound inspired by Chopin Op. 34, in the Public Domain.
@@ -645,7 +691,7 @@ text = "(c) fi-le 2023
 This game is free software due to being published under GNU General Public License v2.0 - and open-source! You can view the source code, check out planned features, fork the game or perhaps even contribute here.
 You can also say hi via email: developer@fi-le.net.
 
-Using logic from a wonderful implementation of Red-Blue-Hackenbush for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
+Using logic and levels from a wonderful implementation of Red-Blue-Hackenbush for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
 
 Fonts by さつやこ and Kawika Heftel under Creative Commons. 
 Sound inspired by Chopin Op. 34, in the Public Domain.
@@ -745,7 +791,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "futile"
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -788,6 +834,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
+frame = 2
 speed_scale = 2.0
 playing = true
 
@@ -827,7 +874,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 16
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -914,7 +961,6 @@ show_behind_parent = true
 margin_left = 282.0
 margin_right = 362.0
 margin_bottom = 171.0
-mouse_default_cursor_shape = 8
 texture_normal = ExtResource( 12 )
 
 [node name="Blue" parent="MainGameStatic/MarginContainer/HBoxContainer" instance=ExtResource( 1 )]
@@ -941,20 +987,26 @@ attenuation = 0.0018866
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 24 )
 
+[connection signal="button_down" from="LevelSelect/CenterContainer/VBoxContainer/VBoxContainer/NextButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/VBoxContainer/NextButton" to="." method="_on_NextButton_pressed"]
 [connection signal="button_down" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ComputerPlay" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ComputerPlay" to="." method="_on_ComputerPlay_pressed"]
+[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play" to="." method="_on_ComputerPlay_pressed"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Tutorial" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
-[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LocalPlay" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LocalPlay" to="." method="_on_LocalPlay_pressed"]
+[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelEditor" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelEditor" to="." method="_on_LevelEditor_pressed"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Credits" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/Language" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/Language" to="." method="_on_Language_pressed"]
 [connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/SFX" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/SFX" to="." method="_on_SFX_pressed"]
+[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/Nodes" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/Nodes" to="." method="_on_Visiblility_pressed"]
+[connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/LocalPlay" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/LocalPlay" to="." method="_on_2Player_pressed"]
 [connection signal="meta_clicked" from="Credits/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_meta_clicked"]
 [connection signal="button_down" from="Credits/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Credits/CenterContainer/VBoxContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]

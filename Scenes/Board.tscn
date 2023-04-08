@@ -136,6 +136,6 @@ damping = 90.0
 scale_amount = 4.0
 color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Ground" type="Polygon2D" parent="."]
 color = Color( 0, 0.0705882, 0.0980392, 1 )
 polygon = PoolVector2Array( -3000, -5, 3000, -5, 3000, 3000, -3000, 3000 )

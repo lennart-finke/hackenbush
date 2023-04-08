@@ -1,0 +1,614 @@
+[gd_scene load_steps=51 format=2]
+
+[ext_resource path="res://Scenes/Branch.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Shader" id=13]
+code = "shader_type canvas_item;
+
+uniform float alpha;
+
+void fragment() {
+	COLOR.a = alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=15]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=16]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=17]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=18]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=19]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=20]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=21]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=22]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=23]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=24]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=26]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=27]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=28]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=29]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=33]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=30]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=32]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=34]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=31]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=35]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=36]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=37]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=39]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=41]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=45]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=46]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=47]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=48]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=49]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=50]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=51]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=52]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=53]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=54]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=55]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=56]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=57]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=58]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=59]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=60]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=61]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
+
+[node name="Edges" type="Node2D"]
+
+[node name="@Branch@49" parent="." instance=ExtResource( 1 )]
+material = SubResource( 14 )
+points = PoolVector2Array( -192, 0, -192, -480 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 1
+q = 1
+
+[node name="Branch" parent="." instance=ExtResource( 1 )]
+material = SubResource( 15 )
+points = PoolVector2Array( -120, 0, -120, -480 )
+ID = 3
+p = 2
+q = 3
+
+[node name="@Branch@54" parent="." instance=ExtResource( 1 )]
+material = SubResource( 16 )
+points = PoolVector2Array( 192, 0, 192, -480 )
+ID = 4
+p = 4
+q = 5
+
+[node name="@Branch@56" parent="." instance=ExtResource( 1 )]
+material = SubResource( 17 )
+points = PoolVector2Array( 120, 0, 120, -480 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 5
+p = 6
+q = 7
+
+[node name="@Branch@70" parent="." instance=ExtResource( 1 )]
+material = SubResource( 18 )
+points = PoolVector2Array( -24, 0, -24, -96 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 12
+p = 8
+q = 9
+
+[node name="@Branch@72" parent="." instance=ExtResource( 1 )]
+material = SubResource( 19 )
+points = PoolVector2Array( 24, 0, 24, -96 )
+ID = 13
+p = 10
+q = 11
+
+[node name="@Branch@74" parent="." instance=ExtResource( 1 )]
+material = SubResource( 20 )
+points = PoolVector2Array( -24, -96, 24, -96 )
+ID = 14
+p = 9
+q = 11
+
+[node name="@Branch@76" parent="." instance=ExtResource( 1 )]
+material = SubResource( 21 )
+points = PoolVector2Array( -24, -96, -72, -144 )
+ID = 15
+p = 9
+q = 12
+
+[node name="@Branch@78" parent="." instance=ExtResource( 1 )]
+material = SubResource( 22 )
+points = PoolVector2Array( 24, -96, 72, -144 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 16
+p = 11
+q = 13
+
+[node name="@Branch@80" parent="." instance=ExtResource( 1 )]
+material = SubResource( 23 )
+points = PoolVector2Array( -72, -144, -72, -48 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 17
+p = 12
+q = 14
+
+[node name="@Branch@82" parent="." instance=ExtResource( 1 )]
+material = SubResource( 24 )
+points = PoolVector2Array( 72, -144, 72, -48 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 18
+p = 13
+q = 15
+
+[node name="@Branch@84" parent="." instance=ExtResource( 1 )]
+material = SubResource( 25 )
+points = PoolVector2Array( -192, -480, -240, -552 )
+ID = 19
+p = 1
+q = 16
+
+[node name="@Branch@86" parent="." instance=ExtResource( 1 )]
+material = SubResource( 26 )
+points = PoolVector2Array( -240, -552, -264, -360 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 20
+p = 16
+q = 17
+
+[node name="@Branch@88" parent="." instance=ExtResource( 1 )]
+material = SubResource( 27 )
+points = PoolVector2Array( -192, -480, -120, -480 )
+ID = 21
+p = 1
+q = 3
+
+[node name="@Branch@90" parent="." instance=ExtResource( 1 )]
+material = SubResource( 28 )
+points = PoolVector2Array( -120, -480, -72, -552 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 22
+p = 3
+q = 18
+
+[node name="@Branch@92" parent="." instance=ExtResource( 1 )]
+material = SubResource( 29 )
+points = PoolVector2Array( -72, -552, -24, -432 )
+ID = 23
+p = 18
+q = 19
+
+[node name="@Branch@108" parent="." instance=ExtResource( 1 )]
+material = SubResource( 33 )
+points = PoolVector2Array( -24, -224, -96, -296 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 31
+p = 20
+q = 23
+
+[node name="@Branch@102" parent="." instance=ExtResource( 1 )]
+material = SubResource( 30 )
+points = PoolVector2Array( -72, -144, -24, -224 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 28
+p = 12
+q = 20
+
+[node name="@Branch@106" parent="." instance=ExtResource( 1 )]
+material = SubResource( 32 )
+points = PoolVector2Array( 32, -224, 96, -304 )
+ID = 30
+p = 21
+q = 22
+
+[node name="@Branch@110" parent="." instance=ExtResource( 1 )]
+material = SubResource( 34 )
+points = PoolVector2Array( -24, -224, -48, -336 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 32
+p = 20
+q = 24
+
+[node name="@Branch@104" parent="." instance=ExtResource( 1 )]
+material = SubResource( 31 )
+points = PoolVector2Array( 72, -144, 32, -224 )
+ID = 29
+p = 13
+q = 21
+
+[node name="@Branch@112" parent="." instance=ExtResource( 1 )]
+material = SubResource( 35 )
+points = PoolVector2Array( -48, -336, 48, -336 )
+ID = 33
+p = 24
+q = 25
+
+[node name="@Branch@114" parent="." instance=ExtResource( 1 )]
+material = SubResource( 36 )
+points = PoolVector2Array( 32, -224, 48, -336 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 34
+p = 21
+q = 25
+
+[node name="@Branch@116" parent="." instance=ExtResource( 1 )]
+material = SubResource( 37 )
+points = PoolVector2Array( -48, -336, -80, -448 )
+ID = 35
+p = 24
+q = 26
+
+[node name="@Branch@118" parent="." instance=ExtResource( 1 )]
+material = SubResource( 38 )
+points = PoolVector2Array( 48, -336, 16, -464 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 36
+p = 25
+q = 27
+
+[node name="@Branch@120" parent="." instance=ExtResource( 1 )]
+material = SubResource( 39 )
+points = PoolVector2Array( -240, -552, -192, -624 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 37
+p = 16
+q = 28
+
+[node name="@Branch@124" parent="." instance=ExtResource( 1 )]
+material = SubResource( 40 )
+points = PoolVector2Array( -192, -624, -264, -696 )
+ID = 39
+p = 28
+q = 29
+
+[node name="@Branch@126" parent="." instance=ExtResource( 1 )]
+material = SubResource( 41 )
+points = PoolVector2Array( -192, -624, -192, -720 )
+ID = 40
+p = 28
+q = 30
+
+[node name="@Branch@128" parent="." instance=ExtResource( 1 )]
+material = SubResource( 42 )
+points = PoolVector2Array( -192, -720, -120, -720 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 41
+p = 30
+q = 31
+
+[node name="@Branch@130" parent="." instance=ExtResource( 1 )]
+material = SubResource( 43 )
+points = PoolVector2Array( -120, -720, -120, -624 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 42
+p = 31
+q = 32
+
+[node name="@Branch@132" parent="." instance=ExtResource( 1 )]
+material = SubResource( 44 )
+points = PoolVector2Array( -120, -624, -72, -552 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 43
+p = 32
+q = 18
+
+[node name="@Branch@134" parent="." instance=ExtResource( 1 )]
+material = SubResource( 45 )
+points = PoolVector2Array( -192, -720, -240, -768 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 44
+p = 30
+q = 33
+
+[node name="@Branch@136" parent="." instance=ExtResource( 1 )]
+material = SubResource( 46 )
+points = PoolVector2Array( -120, -720, -72, -768 )
+ID = 45
+p = 31
+q = 34
+
+[node name="@Branch@138" parent="." instance=ExtResource( 1 )]
+material = SubResource( 47 )
+points = PoolVector2Array( -120, -624, -24, -696 )
+ID = 46
+p = 32
+q = 35
+
+[node name="@Branch@140" parent="." instance=ExtResource( 1 )]
+material = SubResource( 48 )
+points = PoolVector2Array( 120, -480, 72, -552 )
+ID = 47
+p = 7
+q = 36
+
+[node name="@Branch@142" parent="." instance=ExtResource( 1 )]
+material = SubResource( 49 )
+points = PoolVector2Array( 120, -480, 192, -480 )
+ID = 48
+p = 7
+q = 5
+
+[node name="@Branch@144" parent="." instance=ExtResource( 1 )]
+material = SubResource( 50 )
+points = PoolVector2Array( 192, -480, 240, -552 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 49
+p = 5
+q = 37
+
+[node name="@Branch@146" parent="." instance=ExtResource( 1 )]
+material = SubResource( 51 )
+points = PoolVector2Array( 240, -552, 264, -360 )
+ID = 50
+p = 37
+q = 38
+
+[node name="@Branch@148" parent="." instance=ExtResource( 1 )]
+material = SubResource( 52 )
+points = PoolVector2Array( 72, -552, -32, -616 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 51
+p = 36
+q = 39
+
+[node name="@Branch@150" parent="." instance=ExtResource( 1 )]
+material = SubResource( 53 )
+points = PoolVector2Array( 72, -552, 120, -624 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 52
+p = 36
+q = 40
+
+[node name="@Branch@152" parent="." instance=ExtResource( 1 )]
+material = SubResource( 54 )
+points = PoolVector2Array( 240, -552, 192, -624 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 53
+p = 37
+q = 41
+
+[node name="@Branch@154" parent="." instance=ExtResource( 1 )]
+material = SubResource( 55 )
+points = PoolVector2Array( 120, -624, 24, -696 )
+ID = 54
+p = 40
+q = 42
+
+[node name="@Branch@156" parent="." instance=ExtResource( 1 )]
+material = SubResource( 56 )
+points = PoolVector2Array( 120, -624, 120, -720 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 55
+p = 40
+q = 43
+
+[node name="@Branch@158" parent="." instance=ExtResource( 1 )]
+material = SubResource( 57 )
+points = PoolVector2Array( 120, -720, 192, -720 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 56
+p = 43
+q = 44
+
+[node name="@Branch@160" parent="." instance=ExtResource( 1 )]
+material = SubResource( 58 )
+points = PoolVector2Array( 192, -624, 192, -720 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
+ID = 57
+p = 41
+q = 44
+
+[node name="@Branch@162" parent="." instance=ExtResource( 1 )]
+material = SubResource( 59 )
+points = PoolVector2Array( 120, -720, 72, -768 )
+ID = 58
+p = 43
+q = 45
+
+[node name="@Branch@164" parent="." instance=ExtResource( 1 )]
+material = SubResource( 60 )
+points = PoolVector2Array( 192, -720, 240, -768 )
+ID = 59
+p = 44
+q = 46
+
+[node name="@Branch@166" parent="." instance=ExtResource( 1 )]
+material = SubResource( 61 )
+points = PoolVector2Array( 192, -624, 264, -696 )
+ID = 60
+p = 41
+q = 47

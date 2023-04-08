@@ -16,7 +16,9 @@ var menu_origin_size := Vector2.ZERO
 var current_menu
 var menus = []
 
+const MAX_WORLD = 2
 var world : int = 1
+var to_editor := false
 
 var levelselect_button := preload("res://Scenes/LevelSelectButton.tscn")
 
@@ -33,6 +35,7 @@ onready var timer := $Timer
 onready var animation_player := $AnimationPlayer
 onready var win_sprite := $MainGameStatic/CenterContainer/Win
 onready var laurel := $LevelSelect/CenterContainer/VBoxContainer/CenterContainer/Laurel
+onready var next_button := $LevelSelect/CenterContainer/VBoxContainer/VBoxContainer/NextButton
 onready var red := $MainGameStatic/MarginContainer/HBoxContainer/Red/Idle/AnimationPlayer
 onready var red_blade := $MainGameStatic/MarginContainer/HBoxContainer/Red/Blade
 onready var blue := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Idle/AnimationPlayer
@@ -40,7 +43,11 @@ onready var blue_blade := $MainGameStatic/MarginContainer/HBoxContainer/Blue/Bla
 onready var music := $Music
 onready var SFX := $SFX
 onready var SFX_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/SFX
-# Called when the node enters the scene tree for the first time.
+onready var visibility_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/Nodes
+onready var play_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play
+onready var toggle_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/LocalPlay
+
+
 func _ready():
 	get_viewport().connect("size_changed", self, "set_viewport_size")
 	current_menu = mainmenu
@@ -48,9 +55,19 @@ func _ready():
 	
 	setup_sound(Helper.config.get_value(Helper.section, "SFX"))
 	
+	visibility_button.icon = load("res://Sprites/visible.png" if Helper.config.get_value(Helper.section, "display_nodes") else "res://Sprites/invisible.png")
+	
 	for child in get_children():
 		if child is MarginContainer:
 			menus.append(child)
+	
+	if Helper.from_editor:
+		mainmenu.rect_global_position.y = -2000
+		world = 0
+		to_editor = true
+		setup_levelselect()
+		to_next("levelselect", "down")
+
 	
 	# We find the language code used:
 	var lang := OS.get_locale_language()
@@ -60,6 +77,8 @@ func _ready():
 			language_index = i
 			return
 		i += 1
+	
+	
 
 func set_viewport_size():
 	menu_origin_size = get_viewport_rect().size
@@ -141,19 +160,39 @@ func setup_levelselect():
 	for child in level_container.get_children():
 		child.queue_free()
 	
+	var color = Color("005f73" if world % 2 == 0 else "ae2012")
+	
+	var normal_stylebox  : StyleBoxFlat = load("res://Theme/normal_stylebox.tres")
+	var pressed_stylebox : StyleBoxFlat = load("res://Theme/pressed_stylebox.tres")
+	var hover_stylebox : StyleBoxFlat = load("res://Theme/hover_stylebox.tres")
+	normal_stylebox.border_color = color
+	pressed_stylebox.border_color = color
+	hover_stylebox.border_color = color
+	
 	for level in range(LEVELSPERWORLD):
 		var level_button := levelselect_button.instance()
 		
 		if Helper.config.get_value("Release", "unlocked")[world][level]:
-			level_button.icon = load("res://Sprites/Games/" + str(world) + "-" + str(level + 1) + ".png")
+			var file_path = "res://Sprites/Games/" + str(world) + "-" + str(level + 1) + ".png"
+			if world != 0:
+				level_button.icon = load(file_path)
+			if level_button.icon == null:
+				level_button.text = str(level + 1)
 			level_button.connect("pressed", self, "level_select", [level + 1])
 		else:
 			level_button.icon = load("res://Sprites/lock.png")
 
+		level_button.add_stylebox_override("normal", normal_stylebox)
+		level_button.add_stylebox_override("pressed", pressed_stylebox)
+		level_button.add_stylebox_override("hover", hover_stylebox)
+		
 		level_container.add_child(level_button)
 	
-	# if the next world is unlocked, show completion symbol
-	laurel.visible = Helper.config.get_value("Release", "unlocked")[world+1][0]
+	var complete = Helper.config.get_value("Release", "unlocked")[world+1][0] && Helper.config.get_value("Release", "unlocked")[world][15]
+	laurel.texture = load("res://Sprites/puzzle.png" if world == 0 else "res://Sprites/laurel.png")
+	laurel.modulate = Color(1, 1, 1, 1 if complete or world == 0 else 0)
+	next_button.modulate = Color(1, 1, 1, 1 if world != 0 else 0)
+	next_button.disabled = world == 0
 
 func level_select(level : int):
 	if board.inGame:
@@ -162,6 +201,13 @@ func level_select(level : int):
 	SFX.stream = load("res://Sound/click.wav")
 	SFX.play()
 	
+	if to_editor:
+		Helper.level_filepath = "user://0-" + str(level) + ".tscn"
+		to_next("maingame", "up")
+		timer.start()
+		yield(timer, "timeout")
+		get_tree().change_scene("res://Scenes/LevelEditor.tscn")
+	
 	maingame_static.rect_position = Vector2.ZERO
 	
 	board.world = world
@@ -169,11 +215,9 @@ func level_select(level : int):
 	
 	board.StartGame()
 	board.FromFile()
-	board.MakeGame()
-	board.Render()
 	
 	if !music.playing:
-		music.stream = load("res://Sound/Up2.wav")
+		music.stream = load("res://Sound/Up2.mp3")
 		music.play()
 	
 	to_next("maingame", "up")
@@ -193,7 +237,7 @@ func blue_win():
 	red.play('sad')
 	blue.play('happy')
 	if !music.playing:
-		music.stream = load("res://Sound/Down3.wav")
+		music.stream = load("res://Sound/Down3.mp3")
 		music.play()
 	win_sprite.texture = load("res://Sprites/bluewin.png")
 	win()
@@ -201,7 +245,7 @@ func red_win():
 	red.play('happy')
 	blue.play('sad')
 	win_sprite.texture = load("res://Sprites/redwin.png")
-	music.stream = load("res://Sound/Down2.wav")
+	music.stream = load("res://Sound/Down2.mp3")
 	music.play()
 	win()
 
@@ -215,21 +259,29 @@ func win():
 	tween.start()
 
 func _on_ComputerPlay_pressed():
+	world = 1
 	to_next("levelselect", "right")
+	to_editor = false
 	if !music.playing:
-		music.stream = load("res://Sound/Down.wav")
+		music.stream = load("res://Sound/Down.mp3")
 		music.play()
-	board.againstComputer = true
-
-func _on_LocalPlay_pressed():
-	to_next("levelselect", "right")
-	if !music.playing:
-		music.stream = load("res://Sound/Down.wav")
-		music.play()
-	board.againstComputer = false
 
 func _on_BackButton_pressed():
-	to_next("mainmenu", "left")
+	match world:
+		0:
+			if to_editor:
+				world = 1
+				to_next("mainmenu", "left")
+			else:
+				world = MAX_WORLD
+				setup_levelselect()
+			
+		1:
+			to_next("mainmenu", "left")
+		_:
+			world -= 1
+			setup_levelselect()
+		
 	
 func _on_Credits_pressed():
 	to_next("credits", "right")
@@ -242,7 +294,7 @@ func _on_Credits_meta_clicked(meta):
 
 func _on_GiveUp_button_down():
 	if !music.playing:
-		music.stream = load("res://Sound/Down.wav")
+		music.stream = load("res://Sound/Down.mp3")
 		music.play()
 	board.GiveUp()
 
@@ -276,3 +328,25 @@ func setup_sound(mute : bool):
 	SFX.max_distance = 1 if mute else 2000
 	music.max_distance = 1 if mute else 2000
 	SFX_button.icon = load("res://Sprites/nosfx.png" if mute else "res://Sprites/sfx.png")
+
+func _on_Visiblility_pressed():
+	var visibility = !Helper.config.get_value(Helper.section, "display_nodes")
+	Helper.config.set_value(Helper.section, "display_nodes", visibility)
+	Helper.save()
+	visibility_button.icon = load("res://Sprites/visible.png" if visibility else "res://Sprites/invisible.png")
+
+func _on_NextButton_pressed():
+	world = 0 if world == MAX_WORLD else (world + 1)
+	setup_levelselect()
+
+func _on_2Player_pressed():
+	var com : bool = !board.againstComputer
+	board.againstComputer = com
+	toggle_button.icon = load("res://Sprites/2P.png" if com else "res://Sprites/1P.png")
+	play_button.icon = load("res://Sprites/1P.png" if com else "res://Sprites/2P.png")
+	play_button.text = "1PLAYER" if com else "2PLAYER"
+
+func _on_LevelEditor_pressed():
+	to_editor = true
+	world = 0
+	to_next("levelselect", "right")

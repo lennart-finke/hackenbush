@@ -127,5 +127,6 @@ modulate = Color( 0, 0.372549, 0.45098, 1 )
 position = Vector2( -21, 89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 51 )
+animation = "vanish"
 playing = true
 flip_h = true

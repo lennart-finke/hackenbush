@@ -1,11 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Pointer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Branch.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SegmentShape2D" id=7]
 
 [sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0 ), 0.0, 3.00496, 0, 0, Vector2( 0.995049, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Shader" id=13]
+code = "shader_type canvas_item;
+
+uniform float alpha;
+
+void fragment() {
+	COLOR.a = alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/alpha = 1.0
 
 [node name="Pointer" type="Area2D" groups=["pointer"]]
 script = ExtResource( 1 )
@@ -21,3 +36,7 @@ default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 joint_mode = 2
 end_cap_mode = 2
 antialiased = true
+
+[node name="Branch" parent="Node" instance=ExtResource( 2 )]
+visible = false
+material = SubResource( 14 )

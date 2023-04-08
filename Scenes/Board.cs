@@ -103,9 +103,11 @@ public class Board : Node {
 	public void MakeGame() {
 		G = new Hackenbush.game(Hackenbush.MAXNODES * 4);
 		Hackenbush.initgame();
+	
 		Hackenbush.pointcount = Vertices.Length;
 		
 		int i, j, n1 = 0, n2 = 0;
+		
 		
 		j = 1;
 		for (i = 0; i < Hackenbush.pointcount; i++) {
@@ -146,8 +148,6 @@ public class Board : Node {
 		}
 		
 		G.edge[Hackenbush.edgecount * 4 + 0] = G.edge[Hackenbush.edgecount * 4 + 1] = -1;
-
-
 	}
 	
 	public void FromGame() {
@@ -159,16 +159,32 @@ public class Board : Node {
 	public void FromFile() {
 		ClearBranches();
 		
-		var container = GD.Load<PackedScene>("res://Games/" + world.ToString() + "-" + level.ToString() + ".tscn");
-		var container_instance = container.Instance<Node2D>();
-		
-		foreach(var obj in container_instance.GetChildren()) {
-			var node = (Node)obj;
-			container_instance.RemoveChild(node);
-			EdgeContainer.AddChild(node);
+		var file = new File{};
+		var filepath = "res://Games/" + world.ToString() + "-" + level.ToString() + ".tscn";
+		if (world == 0) {
+			filepath = "user://0-" + level.ToString() + ".tscn";
 		}
 		
-		FromEditor();
+		if (file.FileExists(filepath)) {
+			var container = GD.Load<PackedScene>(filepath);
+			var container_instance = container.Instance<Node2D>();
+			
+			foreach(var obj in container_instance.GetChildren()) {
+				var node = (Node)obj;
+				container_instance.RemoveChild(node);
+				EdgeContainer.AddChild(node);
+			}
+			
+			FromEditor();
+			MakeGame();
+			Render();
+		}
+		
+		else {
+			Helper.Set("level_filepath", filepath);
+			GetTree().ChangeScene("res://Scenes/LevelEditor.tscn");
+			QueueFree();
+		}
 	}
 	
 	public void FromEditor() {
@@ -200,7 +216,6 @@ public class Board : Node {
 		foreach(System.Collections.Generic.KeyValuePair<int, Vector2> pair in VertexDict) {
 			Vertices[pair.Key] = new Vertex(pair.Key, pair.Value);
 		}
-		
 	}
 	
 	public void StartGame() {
@@ -231,8 +246,8 @@ public class Board : Node {
 	public void Render() {
 		// Renders the Hackenbush board as scenes.
 		// This may only be called if both Edges, Vertices and G are set up.
+		Hackenbush.prunegame(G);
 		FromGame();
-		
 		ClearBranches();
 		
 		for (int k = 0; k < Edges.Length; k++) {
