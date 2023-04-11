@@ -18,8 +18,9 @@ func _ready():
 	visible_vertices = Helper.config.get_value(Helper.section, "display_nodes")
 	
 	if visible_vertices:
-		start.position = points[0]
-		end.position = points[len(points) - 1]
+		if len(points) > 0:
+			start.position = points[0]
+			end.position = points[len(points) - 1]
 	
 	for i in range(len(points) - 1):
 		var collision_shape = CollisionShape2D.new()

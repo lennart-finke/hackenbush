@@ -22,7 +22,7 @@ func new_game():
 	
 	config.set_value(section, "unlocked", unlocked)
 	config.set_value(section, "volume", 1)
-	config.set_value(section, "SFX", false)
+	config.set_value(section, "SFX", true)
 	config.set_value(section, "display_value", false)
 	config.set_value(section, "display_nodes", false)
 	config.set_value(section, "tutorial_seen", false)

@@ -8,3 +8,9 @@ TUTORIAL2,Red can only cut red branches - by swiping across them. Blue can only 
 TUTORIAL3,"Branches not connected to the ground, naturally, fall down and vanish from the game.","Äste, die nicht mit dem Boden verbunden sind, fallen naturgemäß herunter und verschwinden aus dem Spiel.",他のえだによって地面につながっていないえだは当然、落ちて消えます。
 TUTORIAL4,"In Singleplayer, you take the role of Red in their quest to stick it to Blue once and for all. Good luck!","Im Einzelspielermodus heißt es also, als Rot den letzten Zug zu machen. Viel Glück!",お一人モードで赤として青のヤツめに最後のえだを切ってみせると良いですね。がんばってください！
 EDITOR,Level Editor,Leveleditor,レベル作り
+,,,
+STORY1,"Long, long ago, there was a black and white princess living happily in her black and white tower.","Es war einmal vor langer, langer Zeit, da lebte eine schwarz-weiße Prinzessin in ihrem schwarz-weißen Turme. Und sie war glücklich, alsdann sie dort lebte.",
+STORY2,"But one day, a witch came. She was Red-Blue, one colour on each half. And she saw the princess and was jealous of her happiness.","Doch eines Tages kam eine Hexe, rot auf einer Hälfte und blau auf der anderen. Da sie aber die frohe Prinzessin sah, neidete die Hexe und ergrimmte.",
+STORY3,"So the witch cursed her to eternal sleep. And the curse made Red and Blue vines grow on the tower, which only the witch’s two magic swords could cut. ",Also schlug sie die Prinzessin mit einem ,
+STORY4,"A thousand years passed and the witch died. But the swords were found and passed down the generations as heirloom, in two different families. And at a time when harvest and leisure was plenty in the land, the two families each brought forth a heroine – one Red and one Blue.",,
+STORY5,"They heard the legend of the sleeping princess, fell in love and went off to wake her. But when they arrived at the cursed tower, they saw each other and vied for who would do the last cut, saving the princess. And thus, the game of Hackenbush began:",,

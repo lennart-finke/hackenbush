@@ -476,9 +476,9 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
 margin_left = 96.0
-margin_top = 85.0
+margin_top = 98.0
 margin_right = 480.0
-margin_bottom = 938.0
+margin_bottom = 925.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_right = 384.0
@@ -644,12 +644,12 @@ icon = ExtResource( 9 )
 [node name="Version" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
 margin_top = 817.0
 margin_right = 384.0
-margin_bottom = 853.0
+margin_bottom = 827.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 4 )
-text = "v 0.4
-
-This game is still in its beta phase!  "
+text = "v 0.5"
+align = 2
+valign = 2
 
 [node name="Credits" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -834,7 +834,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
-frame = 2
+frame = 22
 speed_scale = 2.0
 playing = true
 
@@ -874,7 +874,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 3
+frame = 8
 speed_scale = 2.0
 playing = true
 

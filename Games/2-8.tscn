@@ -133,13 +133,15 @@ q = 2
 [node name="@Branch@54" parent="." instance=ExtResource( 1 )]
 material = SubResource( 16 )
 points = PoolVector2Array( 192, 0, 200, -216 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 ID = 4
 p = 3
 q = 4
 
 [node name="@Branch@56" parent="." instance=ExtResource( 1 )]
 material = SubResource( 17 )
-points = PoolVector2Array( 192, 0, 104, -224 )
+points = PoolVector2Array( 192, 0, 104, -216 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 ID = 5
 p = 3
 q = 5
@@ -154,7 +156,6 @@ q = 7
 [node name="@Branch@60" parent="." instance=ExtResource( 1 )]
 material = SubResource( 19 )
 points = PoolVector2Array( 0, 0, 72, -216 )
-default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 ID = 7
 p = 6
 q = 8
@@ -244,7 +245,7 @@ q = 19
 
 [node name="@Branch@108" parent="." instance=ExtResource( 1 )]
 material = SubResource( 31 )
-points = PoolVector2Array( 104, -224, 168, -384 )
+points = PoolVector2Array( 104, -216, 168, -384 )
 ID = 31
 p = 5
 q = 20
@@ -262,8 +263,8 @@ material = SubResource( 32 )
 points = PoolVector2Array( -32, -384, 32, -384 )
 default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 ID = 32
-p = 13
-q = 12
+p = 18
+q = 19
 
 [node name="@Branch@112" parent="." instance=ExtResource( 1 )]
 material = SubResource( 33 )
