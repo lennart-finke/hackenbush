@@ -15,12 +15,13 @@ You can download an APK on the [releases page](https://github.com/file-acomplain
 While performance and stability is not guaranteed, [here](https://fi-le.itch.io/hackenbush) is a browser version, too! 
 
 ## Features
-The project is in early development and current features are quite limited.
+The project is still in development, but these features are already implemented:
 
 - <img src="https://github.com/file-acomplaint/hackenbush/blob/main/Sprites/1P.png" height="30"> Computer Opponent  
 - <img src="https://github.com/file-acomplaint/hackenbush/blob/main/Sprites/2P.png" height="30"> Local 2-Player Mode
+- Rudimentary Level Editor
 - Calculation of the surreal number associated with a position
-- 16 Levels
+- 32 Levels
 
 The [issues page](https://github.com/file-acomplaint/hackenbush/issues) lists some future feature ideas.
 
