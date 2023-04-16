@@ -47,6 +47,12 @@ onready var visibility_button := $MainMenu/CenterContainer/VBoxContainer/CenterC
 onready var play_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play
 onready var toggle_button := $MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer/LocalPlay
 
+func to_story():
+	to_next("maingame", "down")
+	timer.start()
+	timer.wait_time = 1
+	yield(timer, "timeout")
+	get_tree().change_scene("res://Scenes/Theater.tscn")
 
 func _ready():
 	get_viewport().connect("size_changed", self, "set_viewport_size")
@@ -65,9 +71,24 @@ func _ready():
 		mainmenu.rect_global_position.y = -2000
 		world = 0
 		to_editor = true
-		setup_levelselect()
 		to_next("levelselect", "down")
-
+	
+	elif Helper.from_intro:
+		mainmenu.rect_global_position.y = 2000
+		world = 1
+		Helper.from_intro = false
+		
+		if Helper.config.get_value(Helper.section, "tutorial_seen"):
+			to_next("levelselect", "up")
+			timer.start()
+			yield(timer, "timeout")
+		
+		else:
+			Helper.config.set_value(Helper.section, "tutorial_seen", true)
+			to_next("maingame", "up")
+			timer.start()
+			yield(timer, "timeout")
+			level_select(1)
 	
 	# We find the language code used:
 	var lang := OS.get_locale_language()
@@ -77,8 +98,6 @@ func _ready():
 			language_index = i
 			return
 		i += 1
-	
-	
 
 func set_viewport_size():
 	menu_origin_size = get_viewport_rect().size
@@ -141,13 +160,18 @@ func from_string(menu : String):
 
 
 func _notification(event):
-	if board == null:
-		return
-	if board.inGame or current_menu == mainmenu:
-		return
-	
-	if event == MainLoop.NOTIFICATION_WM_QUIT_REQUEST or event == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST: 
-		to_next("mainmenu", "left")
+	if event == MainLoop.NOTIFICATION_WM_QUIT_REQUEST or event == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		if board == null:
+			return
+		if current_menu != mainmenu:
+			if board.inGame:
+				board.GiveUp()
+			else:
+				to_next("mainmenu", "left")
+		else:
+			get_tree().quit()
+		
+		
 
 func setup_levelselect():
 	maingame_static.rect_position = Vector2(0,2000)

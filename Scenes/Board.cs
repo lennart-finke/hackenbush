@@ -349,10 +349,13 @@ public class Board : Node {
 	}
 	
 	public void GiveUp() {
-		if (humanTurn) {
-			string winner = redsTurn ? "blue" : "red"; 
-			Win(winner);
+		string winner = "blue";
+		if (!againstComputer) {
+			if (humanTurn) {
+				winner = redsTurn ? "blue" : "red"; 
+			}
 		}
+		Win(winner);
 	}
 	
 	public async void Cheer(string winner) {
@@ -395,4 +398,5 @@ public class Board : Node {
 	public override void _Input(InputEvent @event) { // DEBUG
 		if (@event.IsActionPressed("a")) ComputerMove();
 	}
+	
 }

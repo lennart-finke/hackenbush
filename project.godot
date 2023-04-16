@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Hackenbush"
 config/description="Take turns trimming branches in this classic from combinatorial game theory!"
-run/main_scene="res://Scenes/Theater.tscn"
+run/main_scene="res://Scenes/Board.tscn"
 boot_splash/image="res://Sprites/logo.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false

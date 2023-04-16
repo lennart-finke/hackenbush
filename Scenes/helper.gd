@@ -10,6 +10,7 @@ var section = "Release"
 # For saving user-created levels
 var level_filepath = ""
 var from_editor := false
+var from_intro := false
 
 func new_game():
 	# world 0 is for custom levels

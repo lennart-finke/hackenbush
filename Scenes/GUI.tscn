@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Scenes/Blue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Sprites/sfx.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/invisible.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/puzzle.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/movie.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -422,9 +423,9 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/CenterContainer"]
 margin_left = 160.0
-margin_top = 410.0
+margin_top = 376.0
 margin_right = 416.0
-margin_bottom = 614.0
+margin_bottom = 648.0
 
 [node name="CenterContainer" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
 margin_right = 256.0
@@ -461,6 +462,16 @@ margin_bottom = 204.0
 [node name="BackButton" parent="LevelSelect/CenterContainer/VBoxContainer/MarginContainer" instance=ExtResource( 5 )]
 margin_left = 0.0
 margin_right = 256.0
+
+[node name="MarginContainer2" type="CenterContainer" parent="LevelSelect/CenterContainer/VBoxContainer"]
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 272.0
+
+[node name="MovieButton" parent="LevelSelect/CenterContainer/VBoxContainer/MarginContainer2" instance=ExtResource( 5 )]
+margin_left = 103.0
+margin_right = 153.0
+texture_normal = ExtResource( 28 )
 
 [node name="MainGame" type="MarginContainer" parent="."]
 margin_top = -1024.0
@@ -791,7 +802,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "futile"
-frame = 3
+frame = 4
 speed_scale = 2.0
 playing = true
 
@@ -834,7 +845,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
-frame = 22
+frame = 23
 speed_scale = 2.0
 playing = true
 
@@ -874,7 +885,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 8
+frame = 14
 speed_scale = 2.0
 playing = true
 
@@ -991,6 +1002,8 @@ stream = ExtResource( 24 )
 [connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/VBoxContainer/NextButton" to="." method="_on_NextButton_pressed"]
 [connection signal="button_down" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="button_down" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer2/MovieButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="LevelSelect/CenterContainer/VBoxContainer/MarginContainer2/MovieButton" to="." method="to_story"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Play" to="." method="_on_ComputerPlay_pressed"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/Tutorial" to="." method="_on_Button_pressed"]
