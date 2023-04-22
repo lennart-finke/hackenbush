@@ -113,7 +113,7 @@ func save_game():
 	var scene = PackedScene.new()
 	scene.pack(edge_container)
 	ResourceSaver.save(filepath, scene)
-	
+	print(filepath)
 	animation_player.play("pan_down")
 
 func exit():

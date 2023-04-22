@@ -3,7 +3,7 @@
 2PLAYER,2 Players,2 Spieler,お二人
 CREDITS,Credits,Credits,ごあいさつ
 HOWTOPLAY,How to Play,Spielregeln,遊びかた
-TUTORIAL1,How to Play,"ist ein Spiel, in dem die Kontrahenten Rot und Blau abwechselnd die Äste eines Gestrüpps zerschneiden. Wer den letzten Schnitt macht, gewinnt!",は「赤さん」と「青さん」が木のえだを切って遊ぶ、数学的なゲームです。最後に切る者が勝ちます。
+TUTORIAL1,is a game in which opponents Red and Blue cut the branches on a bush; the last one to make a cut wins!,"ist ein Spiel, in dem die Kontrahenten Rot und Blau abwechselnd die Äste eines Gestrüpps zerschneiden. Wer den letzten Schnitt macht, gewinnt!",は「赤さん」と「青さん」が木のえだを切って遊ぶ、数学的なゲームです。最後に切る者が勝ちます。
 TUTORIAL2,Red can only cut red branches - by swiping across them. Blue can only cut blue branches. ,"Rot kann durch Wischen nur rote Äste durchschneiden, Blau nur blaue Äste.",赤さんは赤いえだのみ切って、青さんは青いえだだけを切れます。
 TUTORIAL3,"Branches not connected to the ground, naturally, fall down and vanish from the game.","Äste, die nicht mit dem Boden verbunden sind, fallen naturgemäß herunter und verschwinden aus dem Spiel.",他のえだによって地面につながっていないえだは当然、落ちて消えます。
 TUTORIAL4,"In Singleplayer, you take the role of Red in their quest to stick it to Blue once and for all. Good luck!","Im Einzelspielermodus heißt es also, als Rot den letzten Zug zu machen. Viel Glück!",お一人モードで赤として青のヤツめに最後のえだを切ってみせると良いですね。がんばってください！

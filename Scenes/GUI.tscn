@@ -658,7 +658,7 @@ margin_right = 384.0
 margin_bottom = 827.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 4 )
-text = "v 0.5"
+text = "v 0.6"
 align = 2
 valign = 2
 
@@ -674,47 +674,45 @@ margin_bottom = 1024.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
 margin_left = 48.0
-margin_top = 75.0
+margin_top = 59.0
 margin_right = 528.0
-margin_bottom = 949.0
+margin_bottom = 964.0
 
 [node name="Credits" type="RichTextLabel" parent="Credits/CenterContainer/VBoxContainer"]
 margin_right = 480.0
-margin_bottom = 806.0
+margin_bottom = 837.0
 rect_min_size = Vector2( 480, 0 )
 theme = ExtResource( 4 )
 custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "(c) fi-le 2023
+This game is [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]free software[/wave][/rainbow] due to being published under [url=http://www.gnu.de/documents/gpl-2.0.de.html]GNU General Public License v2.0[/url] - and [url=https://github.com/file-acomplaint/hackenbush][rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]open-source[/wave][/rainbow][/url]!
 
-This game is [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]free software[/wave][/rainbow] due to being published under [url=http://www.gnu.de/documents/gpl-2.0.de.html]GNU General Public License v2.0[/url] - and [rainbow freq=0.2 sat=10 val=20][wave amp=25 freq=2]open-source[/wave][/rainbow]! You can view the source code, check out planned features, fork the game or perhaps even contribute [url=https://github.com/file-acomplaint/hackenbush]here[/url].
-You can also say hi via email: [url=mailto:developer@fi-le.net]developer@fi-le.net[/url].
+Hackenbush was invented by John Conway, to whom this game is a tribute. Maybe try the book [url=https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays]'Winning Ways for your Mathematical Plays'[/url]!
 
-Using logic and levels from a [url=http://www.geometer.org/hackenbush/index.html]wonderful implementation of Red-Blue-Hackenbush[/url] for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
-
-Fonts by [url=http://www.asterism-m.com/]さつやこ[/url] and [url=https://khef.co/]Kawika Heftel[/url] under Creative Commons. 
+Using logic and levels from a [url=http://www.geometer.org/hackenbush/index.html]great implementation of Red-Blue-Hackenbush[/url]  by Tom R. Davis, also licensed under GPL-2.0. Fonts by [url=http://www.asterism-m.com/]さつやこ[/url] and [url=https://khef.co/]Kawika Heftel[/url] under Creative Commons. 
 Sound inspired by Chopin Op. 34, in the Public Domain.
 
+You can send inquiries, cat pictures etc. to [url=mailto:developer@fi-le.net]developer@fi-le.net[/url].
 Thank you for playing!
 "
 text = "(c) fi-le 2023
+This game is free software due to being published under GNU General Public License v2.0 - and open-source!
 
-This game is free software due to being published under GNU General Public License v2.0 - and open-source! You can view the source code, check out planned features, fork the game or perhaps even contribute here.
-You can also say hi via email: developer@fi-le.net.
+Hackenbush was invented by John Conway, to whom this game is a tribute. Maybe try the book 'Winning Ways for your Mathematical Plays'!
 
-Using logic and levels from a wonderful implementation of Red-Blue-Hackenbush for Mac and PC by Tom R. Davis, also licensed under GPL-2.0. 
-
-Fonts by さつやこ and Kawika Heftel under Creative Commons. 
+Using logic and levels from a great implementation of Red-Blue-Hackenbush  by Tom R. Davis, also licensed under GPL-2.0. Fonts by さつやこ and Kawika Heftel under Creative Commons. 
 Sound inspired by Chopin Op. 34, in the Public Domain.
 
+You can send inquiries, cat pictures etc. to developer@fi-le.net.
 Thank you for playing!
 "
 fit_content_height = true
 
 [node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer"]
-margin_top = 810.0
+margin_top = 841.0
 margin_right = 480.0
-margin_bottom = 874.0
+margin_bottom = 905.0
 
 [node name="BackButton" parent="Credits/CenterContainer/VBoxContainer/CenterContainer" instance=ExtResource( 5 )]
 margin_left = 112.0
@@ -802,7 +800,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "futile"
-frame = 4
+frame = 2
 speed_scale = 2.0
 playing = true
 
@@ -845,7 +843,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
-frame = 23
+frame = 16
 speed_scale = 2.0
 playing = true
 
@@ -885,7 +883,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 14
+frame = 2
 speed_scale = 2.0
 playing = true
 

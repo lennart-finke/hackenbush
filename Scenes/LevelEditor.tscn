@@ -4,7 +4,6 @@
 [ext_resource path="res://Sprites/scissors.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Pointer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/plus.png" type="Texture" id=4]
-[ext_resource path="res://Theme/ButtonBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=6]
 [ext_resource path="res://Sprites/disk.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/recolor.png" type="Texture" id=8]
@@ -139,10 +138,10 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=17]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 15.0
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 45.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_left = 3
 border_width_top = 3
@@ -155,13 +154,13 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 expand_margin_left = 5.0
 expand_margin_right = 5.0
-expand_margin_top = 8.0
+expand_margin_top = 35.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=18]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 7.0
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 37.0
 bg_color = Color( 0, 0.0705882, 0.0980392, 0 )
 border_width_left = 3
 border_width_top = 3
@@ -174,6 +173,26 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 expand_margin_left = 5.0
 expand_margin_right = 5.0
+expand_margin_top = 30.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=13]
+content_margin_left = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color( 0.027451, 0.027451, 0.027451, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 9
+border_color = Color( 0, 0.372549, 0.45098, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 30.0
 anti_aliasing = false
 
 [node name="Board" type="Node"]
@@ -216,18 +235,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -164.0
 custom_constants/margin_right = 50
-custom_constants/margin_left = 50
+custom_constants/margin_left = 25
 custom_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/GUI/MarginContainer"]
-margin_left = 50.0
-margin_right = 526.0
+[node name="CenterContainer" type="CenterContainer" parent="UILayer/GUI/MarginContainer"]
+margin_left = 25.0
+margin_right = 553.0
 margin_bottom = 114.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/GUI/MarginContainer/CenterContainer"]
+margin_top = 10.0
+margin_right = 528.0
+margin_bottom = 104.0
 custom_constants/separation = 20
 
-[node name="Remove" type="Button" parent="UILayer/GUI/MarginContainer/HBoxContainer"]
-margin_right = 57.0
-margin_bottom = 114.0
+[node name="Remove" type="Button" parent="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer"]
+margin_right = 117.0
+margin_bottom = 94.0
 theme = ExtResource( 6 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -235,15 +259,15 @@ custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
 custom_constants/hseparation = 10
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/normal = ExtResource( 5 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 icon = ExtResource( 2 )
 
-[node name="Recolor" type="Button" parent="UILayer/GUI/MarginContainer/HBoxContainer"]
-margin_left = 77.0
-margin_right = 134.0
-margin_bottom = 114.0
+[node name="Recolor" type="Button" parent="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer"]
+margin_left = 137.0
+margin_right = 254.0
+margin_bottom = 94.0
 theme = ExtResource( 6 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -251,15 +275,15 @@ custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
 custom_constants/hseparation = 10
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/normal = ExtResource( 5 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 icon = ExtResource( 8 )
 
-[node name="Add" type="Button" parent="UILayer/GUI/MarginContainer/HBoxContainer"]
-margin_left = 154.0
-margin_right = 211.0
-margin_bottom = 114.0
+[node name="Add" type="Button" parent="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer"]
+margin_left = 274.0
+margin_right = 391.0
+margin_bottom = 94.0
 theme = ExtResource( 6 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -267,15 +291,15 @@ custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
 custom_constants/hseparation = 10
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/normal = ExtResource( 5 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 icon = ExtResource( 4 )
 
-[node name="Save" type="Button" parent="UILayer/GUI/MarginContainer/HBoxContainer"]
-margin_left = 231.0
-margin_right = 288.0
-margin_bottom = 114.0
+[node name="Save" type="Button" parent="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer"]
+margin_left = 411.0
+margin_right = 528.0
+margin_bottom = 94.0
 theme = ExtResource( 6 )
 custom_colors/font_color_disabled = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_focus = Color( 0, 0.372549, 0.45098, 1 )
@@ -283,12 +307,12 @@ custom_colors/font_color = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_hover = Color( 0, 0.372549, 0.45098, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.372549, 0.45098, 1 )
 custom_constants/hseparation = 10
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/normal = ExtResource( 5 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 icon = ExtResource( 7 )
 
-[connection signal="pressed" from="UILayer/GUI/MarginContainer/HBoxContainer/Remove" to="." method="_on_Remove_pressed"]
-[connection signal="pressed" from="UILayer/GUI/MarginContainer/HBoxContainer/Recolor" to="." method="_on_Recolor_pressed"]
-[connection signal="pressed" from="UILayer/GUI/MarginContainer/HBoxContainer/Add" to="." method="_on_Add_pressed"]
-[connection signal="pressed" from="UILayer/GUI/MarginContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="pressed" from="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer/Recolor" to="." method="_on_Recolor_pressed"]
+[connection signal="pressed" from="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer/Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="UILayer/GUI/MarginContainer/CenterContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]

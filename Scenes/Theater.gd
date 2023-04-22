@@ -28,7 +28,9 @@ func increment_text():
 func _input(event):
 	if (event.is_action_pressed("click") or event.is_action_pressed("ui_accept")):
 		if !finished:
-			animation.advance(10)
+			if animation.current_animation != "2" && animation.current_animation != "5":
+				animation.seek(animation.current_animation_length)
+			print(animation.current_animation_position)
 			finished = true
 			return
 		if k > 5:

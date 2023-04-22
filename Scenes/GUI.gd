@@ -91,7 +91,8 @@ func _ready():
 			level_select(1)
 	
 	# We find the language code used:
-	var lang := OS.get_locale_language()
+	var lang : String = Helper.config.get_value(Helper.section, "locale")
+	TranslationServer.set_locale(lang)
 	var i : int = 0
 	for l in languages:
 		if lang == l:
@@ -330,7 +331,10 @@ func _on_TabContainer_tab_changed(_tab):
 
 func _on_Language_pressed():
 	language_index = (language_index + 1) % len(languages)
-	TranslationServer.set_locale(languages[language_index])
+	var l = languages[language_index]
+	TranslationServer.set_locale(l)
+	Helper.config.set_value(Helper.section, "locale", l)
+	Helper.save()
 
 func _on_Button_pressed():
 	SFX.stream = load("res://Sound/click.wav")

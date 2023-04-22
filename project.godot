@@ -33,6 +33,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=576
 window/size/height=1024
+window/size/test_width=1320
+window/size/test_height=990
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"

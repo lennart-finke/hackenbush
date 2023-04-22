@@ -4,11 +4,11 @@ extends Node
 Here, options, saves and the likes are handled.
 """
 
-var config = ConfigFile.new()
-var section = "Release"
+var config := ConfigFile.new()
+var section := "Release"
 
 # For saving user-created levels
-var level_filepath = ""
+var level_filepath := ""
 var from_editor := false
 var from_intro := false
 
@@ -23,6 +23,7 @@ func new_game():
 	
 	config.set_value(section, "unlocked", unlocked)
 	config.set_value(section, "volume", 1)
+	config.set_value(section, "locale", OS.get_locale_language())
 	config.set_value(section, "SFX", true)
 	config.set_value(section, "display_value", false)
 	config.set_value(section, "display_nodes", false)
@@ -62,3 +63,5 @@ func _ready():
 	# We fix old save files. Remove in a subsesequent version.
 	if !config.has_section_key(Helper.section, "display_nodes"):
 		config.set_value(Helper.section, "display_nodes", false)
+	if !config.has_section_key(Helper.section, "locale"):
+		config.set_value(Helper.section, "locale", OS.get_locale_language())
