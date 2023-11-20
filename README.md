@@ -30,7 +30,13 @@ The [issues page](https://github.com/file-acomplaint/hackenbush/issues) lists so
 
 Since Tom Davis' version is under the GPL 2.0 license, so is this project.
 
+
 ---
 ### Further Reading
 - [Hackenbush: A window to a new world of math](https://www.youtube.com/watch?v=ZYj4NkeGPdM) is a video explaining the rules of the game while walking the viewer through the discovery of surreal numbers. A must watch!
-- [Winning Ways for Your Mathematical Plays](https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays) is a great introduction to combinatorial game theory in book format. 
+- [Winning Ways for Your Mathematical Plays](https://en.wikipedia.org/wiki/Winning_Ways_for_Your_Mathematical_Plays) is a great introduction to combinatorial game theory in book format.
+
+
+
+### And apparently, Critical Acclaim
+This game won the German National Multimedia Award mb21, which you can read more about [here](https://www.mb21.de/wettbewerbsjahr_2023.html?articles=hackenbush-pocket-edition) in German. Many thanks to the jury!
