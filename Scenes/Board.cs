@@ -396,7 +396,10 @@ public class Board : Node {
 	}
 	
 	public override void _Input(InputEvent @event) { // DEBUG
-		if (@event.IsActionPressed("a")) ComputerMove();
+		if (@event.IsActionPressed("a")) {
+			Hackenbush.findbestgamemoves(G);
+			ComputerMove();
+		}
 	}
 	
 }

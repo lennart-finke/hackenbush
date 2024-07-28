@@ -121,6 +121,7 @@ shader_param/alpha = 1.0
 [node name="Branch" parent="." instance=ExtResource( 1 )]
 material = SubResource( 14 )
 points = PoolVector2Array( -192, 0, -256, -216 )
+default_color = Color( 0.682353, 0.12549, 0.0705882, 1 )
 ID = 2
 q = 1
 

@@ -247,138 +247,172 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="AtlasTexture" id=9]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=10]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 384, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 512, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=14]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 640, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=15]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 768, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=16]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 896, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=17]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1024, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=18]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1152, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=19]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1280, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=20]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1408, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=21]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1536, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=22]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1664, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=23]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1792, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=24]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 1920, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=25]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 2048, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=26]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 2176, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=27]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 2304, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=28]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 2432, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=30]
+flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=31]
+flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=32]
+flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=33]
+flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 384, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=34]
+flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 512, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=41]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 0, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=35]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=36]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=37]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 384, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=38]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 512, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=40]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 640, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=39]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 768, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=42]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 896, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=43]
+flags = 4
 atlas = ExtResource( 18 )
 region = Rect2( 1024, 0, 128, 128 )
 
@@ -658,7 +692,7 @@ margin_right = 384.0
 margin_bottom = 827.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 4 )
-text = "v 0.6"
+text = "v 0.8"
 align = 2
 valign = 2
 
@@ -768,7 +802,7 @@ texture = ExtResource( 15 )
 [node name="MarginContainer" type="MarginContainer" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/I"]
 margin_top = 322.0
 margin_right = 505.0
-margin_bottom = 408.0
+margin_bottom = 372.0
 custom_constants/margin_right = 25
 custom_constants/margin_top = 20
 custom_constants/margin_left = 30
@@ -778,7 +812,7 @@ custom_constants/margin_bottom = 30
 margin_left = 30.0
 margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 56.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 450, 0 )
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
@@ -800,7 +834,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "futile"
-frame = 2
+frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -815,9 +849,9 @@ custom_constants/margin_bottom = 30
 
 [node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/II/MarginContainer"]
 margin_left = 30.0
-margin_top = 20.0
+margin_top = 38.0
 margin_right = 480.0
-margin_bottom = 56.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 450, 0 )
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
@@ -843,7 +877,7 @@ margin_bottom = 4.0
 position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
-frame = 16
+frame = 20
 speed_scale = 2.0
 playing = true
 
@@ -859,7 +893,7 @@ custom_constants/margin_bottom = 30
 margin_left = 30.0
 margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 56.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 450, 0 )
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )
@@ -883,7 +917,7 @@ position = Vector2( 249, 375 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 29 )
 animation = "win"
-frame = 2
+frame = 16
 speed_scale = 2.0
 playing = true
 
@@ -898,9 +932,9 @@ custom_constants/margin_bottom = 30
 
 [node name="Explainer" type="Label" parent="Tutorial/CenterContainer/VBoxContainer/TabContainer/IV/MarginContainer3"]
 margin_left = 30.0
-margin_top = 20.0
+margin_top = 38.0
 margin_right = 480.0
-margin_bottom = 56.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 450, 0 )
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.0705882, 0.0980392, 1 )

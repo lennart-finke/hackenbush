@@ -74,6 +74,10 @@ translation_remaps={
 "res://Theme/PixelFont.tres": PoolStringArray(  )
 }
 
+[mono]
+
+project/assembly_name="Hackenbush"
+
 [physics]
 
 common/enable_pause_aware_picking=true
